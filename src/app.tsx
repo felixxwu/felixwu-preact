@@ -1,33 +1,45 @@
-import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import viteLogo from '/vite.svg'
-import './app.css'
+import { styled } from './utils/StyledComponent'
+import { css } from '@emotion/css'
+import { laptopWidth } from './utils/signals'
+import { Provider } from './Provider'
+import { Laptop } from './Laptop'
+import { color1 } from './utils/consts'
+import { Screen } from './Screen'
 
 export function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
-        </a>
-      </div>
-      <h1>Vite + Preact</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/app.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p class="read-the-docs">
-        Click on the Vite and Preact logos to learn more
-      </p>
-    </>
+    <Provider>
+      {laptopWidth.value < 700 ? (
+        <MobileContainer>
+          <Screen />
+        </MobileContainer>
+      ) : (
+        <LaptopContainer>
+          <Laptop children={<Screen />} />
+        </LaptopContainer>
+      )}
+    </Provider>
   )
 }
+
+const LaptopContainer = styled(
+  'div',
+  css`
+    position: absolute;
+    width: 100vw;
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `
+)
+
+const MobileContainer = styled(
+  'div',
+  css`
+    width: 100vw;
+    height: 100svh;
+    overflow-y: auto;
+    background-color: ${color1};
+  `
+)

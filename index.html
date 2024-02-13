@@ -5,9 +5,31 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + Preact + TS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #eee;
+      overflow: hidden;
+    }
+
+    * {
+      min-width: 0;
+      -webkit-box-sizing:border-box;
+      -moz-box-sizing:border-box;
+      -ms-box-sizing:border-box;
+      box-sizing:border-box;
+      font-family: 'Lexend Deca', sans-serif;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
 </html>
