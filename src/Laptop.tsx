@@ -1,7 +1,7 @@
 import { css } from '@emotion/css'
 import { styled } from './utils/StyledComponent'
 import { v } from './utils/cssvars'
-import { Keyboard } from './Keyboard'
+import { Body } from './Body'
 import { Lid } from './Lid'
 import { perspective } from './utils/consts'
 import { JSX } from 'preact/jsx-runtime'
@@ -9,7 +9,7 @@ import { JSX } from 'preact/jsx-runtime'
 export function Laptop({ children }: { children: JSX.Element }) {
   return (
     <Container>
-      <Keyboard />
+      <Body />
       <Lid children={children} />
     </Container>
   )
