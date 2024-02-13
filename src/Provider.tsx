@@ -1,7 +1,7 @@
 import { JSX } from 'preact/jsx-runtime'
 import { vars } from './utils/cssvars'
 import { useEffect } from 'preact/hooks'
-import { angle, laptopWidth, mouseDown, transition } from './utils/signals'
+import { angle, keysPressed, laptopWidth, mouseDown, transition } from './utils/signals'
 import { keyboardAngle, maxLidAngle } from './utils/consts'
 
 export function Provider({ children }: { children: JSX.Element }) {
@@ -24,7 +24,7 @@ export function Provider({ children }: { children: JSX.Element }) {
   useEffect(() => {
     setTimeout(() => {
       angle.value = maxLidAngle
-    }, 100)
+    })
     window.onresize = onResize
     window.onpointerup = () => {
       mouseDown.value = false
@@ -38,6 +38,13 @@ export function Provider({ children }: { children: JSX.Element }) {
           Math.min(angle.value - e.movementY * 0.3, maxLidAngle + 50)
         )
       }
+    }
+    window.onkeydown = (e: KeyboardEvent) => {
+      if (['Tab'].includes(e.key)) return
+      keysPressed.value = [...keysPressed.value, e.key]
+    }
+    window.onkeyup = (e: KeyboardEvent) => {
+      keysPressed.value = keysPressed.value.filter(k => k !== e.key)
     }
   }, [])
 
