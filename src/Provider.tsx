@@ -1,7 +1,8 @@
 import { JSX } from 'preact/jsx-runtime'
 import { vars } from './utils/cssvars'
 import { useEffect } from 'preact/hooks'
-import { laptopWidth } from './utils/signals'
+import { angle, laptopWidth } from './utils/signals'
+import { maxLidAngle } from './utils/consts'
 
 export function Provider({ children }: { children: JSX.Element }) {
   const styles = Object.keys(vars)
@@ -22,6 +23,7 @@ export function Provider({ children }: { children: JSX.Element }) {
 
   useEffect(() => {
     window.onresize = onResize
+    angle.value = maxLidAngle
   }, [])
 
   return <div style={styles}>{children}</div>
