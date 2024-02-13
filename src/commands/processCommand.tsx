@@ -6,17 +6,22 @@ import { commands } from '../utils/commands'
 
 export function processCommand() {
   const command = inputText.value.trim() as keyof typeof commands
-  if (!command) return
-
-  if (command === 'clear') {
-    screenContent.value = []
-    inputText.value = ''
-    return
-  }
+  inputText.value = ''
 
   const cappedContent = screenContent.value.slice(
     Math.max(0, screenContent.value.length - historyLimit)
   )
+
+  if (command === 'clear') {
+    screenContent.value = []
+    return
+  }
+
+  if ((command as any) === '') {
+    screenContent.value = [...cappedContent, <SubmittedCommand command={command} />]
+    return
+  }
+
   if (Object.keys(commands).includes(command)) {
     screenContent.value = [
       ...cappedContent,
@@ -30,5 +35,4 @@ export function processCommand() {
       <UnknownCommand command={command} />,
     ]
   }
-  inputText.value = ''
 }

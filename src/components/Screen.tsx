@@ -21,7 +21,9 @@ export function Screen() {
 
   return (
     <Container>
-      {screenContent.value}
+      {screenContent.value.map((content, i) => (
+        <div key={i}>{content}</div>
+      ))}
       <Input id='input' type='text' oninput={handleInput} value={prompt + inputText.value} />
     </Container>
   )
