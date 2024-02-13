@@ -40,7 +40,7 @@ const Base = styled(
     justify-content: center;
     align-items: center;
     background-color: ${color3};
-    border-radius: ${borderRadius1}px;
+    border-radius: ${borderRadius2}px;
     transform: ${rotation} translateY(calc(${v('laptopHeight')} / 2));
     transition: ${v('transition')};
   `
@@ -66,12 +66,12 @@ const Front = styled(
   'div',
   css`
     position: absolute;
-    width: calc(${v('laptopWidth')} - 3px);
+    width: calc(${v('laptopWidth')} - 2px);
     height: ${v('thickness')};
     background-color: ${color4};
     border-radius: ${borderRadius2}px ${borderRadius2}px ${borderRadius1}px ${borderRadius1}px;
     transform: ${rotation} translateY(${v('laptopHeight')})
-      translateZ(calc(1px + ${v('thickness')} / -2)) rotateX(90deg);
+      translateZ(calc(1.5px + ${v('thickness')} / -2)) rotateX(90deg);
     transition: ${v('transition')};
   `
 )
