@@ -70,8 +70,8 @@ const Front = styled(
     height: ${v('thickness')};
     background-color: ${color4};
     border-radius: ${borderRadius2}px ${borderRadius2}px ${borderRadius1}px ${borderRadius1}px;
-    transform: ${rotation} translateY(${v('laptopHeight')}) translateZ(calc(${v('thickness')} / -2))
-      rotateX(90deg);
+    transform: ${rotation} translateY(${v('laptopHeight')})
+      translateZ(calc(1px + ${v('thickness')} / -2)) rotateX(90deg);
     transition: ${v('transition')};
   `
 )

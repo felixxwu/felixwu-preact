@@ -82,8 +82,8 @@ const Top = styled(
     width: ${v('laptopWidth')};
     height: calc(${v('thickness')} / 2);
     background-color: ${color4};
-    transform: ${rotation} translateY(${v('laptopHeight')}) translateZ(calc(${v('thickness')} / 4))
-      rotateX(90deg);
+    transform: ${rotation} translateY(${v('laptopHeight')})
+      translateZ(calc(1px + ${v('thickness')} / 4)) rotateX(90deg);
     transition: ${v('transition')};
     border-radius: ${borderRadius1}px;
   `
