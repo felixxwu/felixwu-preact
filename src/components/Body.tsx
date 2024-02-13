@@ -1,6 +1,6 @@
 import { css } from '@emotion/css'
-import { styled } from './utils/StyledComponent'
-import { v } from './utils/cssvars'
+import { styled } from '../utils/StyledComponent'
+import { v } from '../utils/cssvars'
 import {
   borderRadius1,
   borderRadius2,
@@ -9,7 +9,7 @@ import {
   color4,
   color5,
   keyboardAngle,
-} from './utils/consts'
+} from '../utils/consts'
 import { Keyboard } from './Keyboard'
 
 export function Body() {

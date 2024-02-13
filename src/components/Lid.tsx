@@ -1,4 +1,4 @@
-import { styled } from './utils/StyledComponent'
+import { styled } from '../utils/StyledComponent'
 import { css } from '@emotion/css'
 import {
   borderRadius1,
@@ -11,10 +11,10 @@ import {
   keyboardAngle,
   maxLidAngle,
   perspective,
-} from './utils/consts'
-import { v } from './utils/cssvars'
+} from '../utils/consts'
+import { v } from '../utils/cssvars'
 import { JSX } from 'preact/jsx-runtime'
-import { angle, mouseDown, mouseDownY, transition } from './utils/signals'
+import { angle, mouseDown, mouseDownY, transition } from '../utils/signals'
 
 export function Lid({ children }: { children: JSX.Element }) {
   const handleClick = () => {

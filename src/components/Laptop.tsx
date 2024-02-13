@@ -1,9 +1,9 @@
 import { css } from '@emotion/css'
-import { styled } from './utils/StyledComponent'
-import { v } from './utils/cssvars'
+import { styled } from '../utils/StyledComponent'
+import { v } from '../utils/cssvars'
 import { Body } from './Body'
 import { Lid } from './Lid'
-import { perspective } from './utils/consts'
+import { perspective } from '../utils/consts'
 import { JSX } from 'preact/jsx-runtime'
 
 export function Laptop({ children }: { children: JSX.Element }) {

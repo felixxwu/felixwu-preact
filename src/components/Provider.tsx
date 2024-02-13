@@ -1,8 +1,8 @@
 import { JSX } from 'preact/jsx-runtime'
-import { vars } from './utils/cssvars'
+import { vars } from '../utils/cssvars'
 import { useEffect } from 'preact/hooks'
-import { angle, keysPressed, laptopWidth, mouseDown, transition } from './utils/signals'
-import { keyboardAngle, maxLidAngle } from './utils/consts'
+import { angle, keysPressed, laptopWidth, mouseDown, transition } from '../utils/signals'
+import { keyboardAngle, maxLidAngle } from '../utils/consts'
 
 export function Provider({ children }: { children: JSX.Element }) {
   const styles = Object.keys(vars)

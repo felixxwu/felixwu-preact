@@ -1,7 +1,7 @@
 import { css } from '@emotion/css'
-import { styled } from './utils/StyledComponent'
-import { v } from './utils/cssvars'
-import { borderRadius2, color1, color4 } from './utils/consts'
+import { styled } from '../utils/StyledComponent'
+import { v } from '../utils/cssvars'
+import { borderRadius2, color1, color4 } from '../utils/consts'
 import { Key } from './Key'
 
 export function Keyboard() {

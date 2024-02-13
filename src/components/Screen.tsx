@@ -1,7 +1,7 @@
 import { css } from '@emotion/css'
-import { styled } from './utils/StyledComponent'
-import { inputText } from './utils/signals'
-import { prompt } from './utils/consts'
+import { styled } from '../utils/StyledComponent'
+import { inputText } from '../utils/signals'
+import { prompt } from '../utils/consts'
 import { useState } from 'preact/hooks'
 
 export function Screen() {

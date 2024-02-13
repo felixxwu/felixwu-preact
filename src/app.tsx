@@ -1,10 +1,10 @@
 import { styled } from './utils/StyledComponent'
 import { css } from '@emotion/css'
 import { laptopWidth } from './utils/signals'
-import { Provider } from './Provider'
-import { Laptop } from './Laptop'
+import { Provider } from './components/Provider'
+import { Laptop } from './components/Laptop'
 import { color1 } from './utils/consts'
-import { Screen } from './Screen'
+import { Screen } from './components/Screen'
 
 export function App() {
   return (
