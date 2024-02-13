@@ -3,7 +3,6 @@ import { vars } from './utils/cssvars'
 import { useEffect } from 'preact/hooks'
 import { angle, laptopWidth, mouseDown, transition } from './utils/signals'
 import { keyboardAngle, maxLidAngle } from './utils/consts'
-import { throttleDebounce } from './utils/throttle-debounce'
 
 export function Provider({ children }: { children: JSX.Element }) {
   const styles = Object.keys(vars)
@@ -22,14 +21,6 @@ export function Provider({ children }: { children: JSX.Element }) {
 
   onResize()
 
-  const drag = throttleDebounce((e: MouseEvent) => {
-    transition.value = 0
-    angle.value = Math.max(
-      keyboardAngle,
-      Math.min(angle.value - e.movementY * 0.3, maxLidAngle + 50)
-    )
-  }, 10)
-
   useEffect(() => {
     setTimeout(() => {
       angle.value = maxLidAngle
@@ -41,7 +32,11 @@ export function Provider({ children }: { children: JSX.Element }) {
     }
     window.document.body.onpointermove = (e: MouseEvent) => {
       if (mouseDown.value) {
-        drag(e)
+        transition.value = 0
+        angle.value = Math.max(
+          keyboardAngle,
+          Math.min(angle.value - e.movementY * 0.3, maxLidAngle + 50)
+        )
       }
     }
   }, [])
