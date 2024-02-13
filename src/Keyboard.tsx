@@ -22,10 +22,10 @@ export function Keyboard() {
           <Key name='0' />
           <Key name='-' />
           <Key name='=' />
-          <Key name='Backspace' style={{ width: 75 }} />
+          <Key name='Backspace' style={{ width: `calc(${v('laptopWidth')} / 10)` }} />
         </KeyRow>
         <KeyRow>
-          <Key style={{ width: 52 }} />
+          <Key style={{ width: `calc(${v('laptopWidth')} / 13)` }} />
           <Key name='q' />
           <Key name='w' />
           <Key name='e' />
@@ -38,10 +38,10 @@ export function Keyboard() {
           <Key name='p' />
           <Key name='[' />
           <Key name=']' />
-          <Key name='\' style={{ width: 60 }} />
+          <Key name='\' style={{ width: `calc(${v('laptopWidth')} / 13)` }} />
         </KeyRow>
         <KeyRow>
-          <Key name='CapsLock' style={{ width: 70 }} />
+          <Key name='CapsLock' style={{ width: `calc(${v('laptopWidth')} / 10)` }} />
           <Key name='a' />
           <Key name='s' />
           <Key name='d' />
@@ -53,10 +53,10 @@ export function Keyboard() {
           <Key name='l' />
           <Key name=';' />
           <Key name="'" />
-          <Key name='Enter' style={{ width: 85 }} />
+          <Key name='Enter' style={{ width: `calc(${v('laptopWidth')} / 9)` }} />
         </KeyRow>
         <KeyRow>
-          <Key name='Shift' style={{ width: 92 }} />
+          <Key name='Shift' style={{ width: `calc(${v('laptopWidth')} / 8)` }} />
           <Key name='z' />
           <Key name='x' />
           <Key name='c' />
@@ -67,20 +67,20 @@ export function Keyboard() {
           <Key name=',' />
           <Key name='.' />
           <Key name='/' />
-          <Key name='Shift' style={{ width: 105 }} />
+          <Key name='Shift' style={{ width: `calc(${v('laptopWidth')} / 7)` }} />
         </KeyRow>
         <KeyRow>
           <Key />
           <Key name='Control' />
           <Key name='Alt' />
           <Key name='Meta' />
-          <Key name=' ' style={{ width: 245 }} />
+          <Key name=' ' style={{ width: `calc(${v('laptopWidth')} / 3.05)` }} />
           <Key name='Meta' />
           <Key name='Alt' />
           <Key name='ArrowLeft' />
           <DoubleKey>
-            <Key name='ArrowUp' style={{ height: 17 }} />
-            <Key name='ArrowDown' style={{ height: 17 }} />
+            <Key name='ArrowUp' style={{ height: `calc(${v('laptopWidth')} / 42)` }} />
+            <Key name='ArrowDown' style={{ height: `calc(${v('laptopWidth')} / 42)` }} />
           </DoubleKey>
           <Key name='ArrowRight' />
         </KeyRow>
@@ -113,7 +113,8 @@ const Keybed = styled(
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: calc(${v('laptopHeight')} / 50);
+    transition: ${v('transition')};
     flex-direction: column;
   `
 )
@@ -124,7 +125,8 @@ const KeyRow = styled(
     display: flex;
     justify-content: center;
     width: 100%;
-    gap: 5px;
+    gap: calc(${v('laptopWidth')} / 200);
+    transition: ${v('transition')};
   `
 )
 
@@ -133,7 +135,8 @@ const DoubleKey = styled(
   css`
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: calc(${v('laptopWidth')} / 200);
+    transition: ${v('transition')};
   `
 )
 
