@@ -1,10 +1,11 @@
-import { JSX } from 'preact/jsx-runtime'
 import { vars } from '../utils/cssvars'
 import { useEffect } from 'preact/hooks'
 import { angle, keysPressed, laptopWidth, mouseDown, transition } from '../utils/signals'
 import { keyboardAngle, maxLidAngle } from '../utils/consts'
+import { processCommand } from '../commands/processCommand'
+import { ComponentChildren } from 'preact'
 
-export function Provider({ children }: { children: JSX.Element }) {
+export function Provider({ children }: { children: ComponentChildren }) {
   const styles = Object.keys(vars)
     .map(key => ({
       [`--${key}`]: `${vars[key as keyof typeof vars].signal.value}${
@@ -14,8 +15,10 @@ export function Provider({ children }: { children: JSX.Element }) {
     .reduce((acc, curr) => ({ ...acc, ...curr }), {})
 
   const onResize = () => {
-    if (window.innerWidth < 1500) {
-      laptopWidth.value = window.innerWidth - 500
+    if (window.innerWidth < 1050) {
+      laptopWidth.value = window.innerWidth - 50
+    } else {
+      laptopWidth.value = 1000
     }
   }
 
@@ -25,11 +28,14 @@ export function Provider({ children }: { children: JSX.Element }) {
     setTimeout(() => {
       angle.value = maxLidAngle
     })
+
     window.onresize = onResize
+
     window.onpointerup = () => {
       mouseDown.value = false
       transition.value = 1
     }
+
     window.document.body.onpointermove = (e: MouseEvent) => {
       if (mouseDown.value) {
         transition.value = 0
@@ -39,10 +45,15 @@ export function Provider({ children }: { children: JSX.Element }) {
         )
       }
     }
+
     window.onkeydown = (e: KeyboardEvent) => {
       document.getElementById('input')?.focus()
       if (['Tab'].includes(e.key)) return
       keysPressed.value = [...keysPressed.value, e.key]
+
+      if (e.key === 'Enter') {
+        processCommand()
+      }
     }
     window.onkeyup = (e: KeyboardEvent) => {
       keysPressed.value = keysPressed.value.filter(k => k !== e.key)

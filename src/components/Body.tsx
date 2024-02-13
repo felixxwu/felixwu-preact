@@ -66,7 +66,7 @@ const Front = styled(
   'div',
   css`
     position: absolute;
-    width: ${v('laptopWidth')};
+    width: calc(${v('laptopWidth')} - 3px);
     height: ${v('thickness')};
     background-color: ${color4};
     border-radius: ${borderRadius2}px ${borderRadius2}px ${borderRadius1}px ${borderRadius1}px;

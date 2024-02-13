@@ -26,7 +26,7 @@ export function Lid({ children }: { children: JSX.Element }) {
     <>
       <Back />
       <Top />
-      <Front>{children}</Front>
+      <Front id='screen-container'>{children}</Front>
       <Control
         onclick={handleClick}
         onpointerdown={(e: PointerEvent) => {

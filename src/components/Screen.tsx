@@ -1,19 +1,27 @@
 import { css } from '@emotion/css'
 import { styled } from '../utils/StyledComponent'
-import { inputText } from '../utils/signals'
+import { inputText, screenContent } from '../utils/signals'
 import { prompt } from '../utils/consts'
 import { useState } from 'preact/hooks'
 
 export function Screen() {
   const [updateKey, setUpdateKey] = useState(0)
 
+  const screen = document.getElementById('screen-container')
+  if (screen) {
+    setTimeout(() => {
+      screen.scrollTop = 1e10
+    })
+  }
+
   const handleInput = (e: Event) => {
-    inputText.value = (e.target as HTMLInputElement).value.slice(prompt.length).trim() ?? ''
+    inputText.value = (e.target as HTMLInputElement).value.slice(prompt.length) ?? ''
     setUpdateKey(updateKey + 1)
   }
 
   return (
     <Container>
+      {screenContent.value}
       <Input id='input' type='text' oninput={handleInput} value={prompt + inputText.value} />
     </Container>
   )

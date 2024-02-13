@@ -9,8 +9,8 @@ import { Screen } from './components/Screen'
 export function App() {
   return (
     <Provider>
-      {laptopWidth.value < 700 ? (
-        <MobileContainer>
+      {laptopWidth.value < 600 ? (
+        <MobileContainer id='screen-container'>
           <Screen />
         </MobileContainer>
       ) : (
