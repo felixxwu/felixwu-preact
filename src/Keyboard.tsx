@@ -1,7 +1,7 @@
 import { css } from '@emotion/css'
 import { styled } from './utils/StyledComponent'
 import { v } from './utils/cssvars'
-import { borderRadius2, color2, color4, transition } from './utils/consts'
+import { borderRadius2, color2, color4 } from './utils/consts'
 
 export function Keyboard() {
   return (
@@ -31,7 +31,7 @@ const Keybed = styled(
     background-color: ${color2};
     border-radius: ${borderRadius2}px;
     transform: translateY(calc(${v('laptopHeight')} / -8));
-    transition: ${transition};
+    transition: ${v('transition')};
   `
 )
 
@@ -44,6 +44,6 @@ const Touchpad = styled(
     background-color: ${color4};
     border-radius: ${borderRadius2}px;
     transform: translateY(calc(${v('laptopHeight')} / 3.1));
-    transition: ${transition};
+    transition: ${v('transition')};
   `
 )

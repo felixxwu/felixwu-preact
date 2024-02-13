@@ -26,6 +26,6 @@ const Container = styled(
     align-items: center;
     transform: translateY(calc((${v('angle')} * 1.5px) - 50px));
     perspective: ${perspective}px;
-    transition: 1s;
+    transition: ${v('transition')};
   `
 )

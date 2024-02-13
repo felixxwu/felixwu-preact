@@ -1,9 +1,8 @@
 export const keyboardAngle = 70
 export const maxLidAngle = 190
-export const perspective = 1500
+export const perspective = 2000
 export const borderRadius1 = 3
 export const borderRadius2 = 8
-export const transition = '1s'
 export const boxShadow = '0px 0px 10px black'
 
 export const color1 = '#222'

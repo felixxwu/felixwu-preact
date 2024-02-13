@@ -9,7 +9,6 @@ import {
   color4,
   color5,
   keyboardAngle,
-  transition,
 } from './utils/consts'
 import { Keyboard } from './Keyboard'
 
@@ -43,7 +42,7 @@ const Base = styled(
     background-color: ${color3};
     border-radius: ${borderRadius1}px;
     transform: ${rotation} translateY(calc(${v('laptopHeight')} / 2));
-    transition: ${transition};
+    transition: ${v('transition')};
   `
 )
 
@@ -57,7 +56,7 @@ const Shadow = styled(
     border-radius: ${borderRadius1}px;
     transform: ${rotation} translateY(calc(${v('laptopHeight')} / 2))
       translateZ(calc(${v('thickness')} * -4));
-    transition: ${transition};
+    transition: ${v('transition')};
     filter: blur(40px);
     opacity: 0.5;
   `
@@ -73,7 +72,7 @@ const Front = styled(
     border-radius: ${borderRadius2}px ${borderRadius2}px ${borderRadius1}px ${borderRadius1}px;
     transform: ${rotation} translateY(${v('laptopHeight')}) translateZ(calc(${v('thickness')} / -2))
       rotateX(90deg);
-    transition: ${transition};
+    transition: ${v('transition')};
   `
 )
 
@@ -86,7 +85,7 @@ const Hinge = styled(
     background-color: ${color1};
     border-radius: ${borderRadius1}px;
     transform: ${rotation} translateY(calc(${v('laptopHeight')} / 30));
-    transition: ${transition};
+    transition: ${v('transition')};
   `
 )
 
@@ -100,6 +99,6 @@ const Lip = styled(
     transform: ${rotation} translateY(${v('laptopHeight')}) translateZ(calc(${v('thickness')} / -4))
       rotateX(90deg);
     border-radius: ${borderRadius2}px ${borderRadius2}px 0 0;
-    transition: ${transition};
+    transition: ${v('transition')};
   `
 )

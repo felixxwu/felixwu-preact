@@ -1,8 +1,9 @@
 import { JSX } from 'preact/jsx-runtime'
 import { vars } from './utils/cssvars'
 import { useEffect } from 'preact/hooks'
-import { angle, laptopWidth } from './utils/signals'
-import { maxLidAngle } from './utils/consts'
+import { angle, laptopWidth, mouseDown, transition } from './utils/signals'
+import { keyboardAngle, maxLidAngle } from './utils/consts'
+import { throttleDebounce } from './utils/throttle-debounce'
 
 export function Provider({ children }: { children: JSX.Element }) {
   const styles = Object.keys(vars)
@@ -21,9 +22,28 @@ export function Provider({ children }: { children: JSX.Element }) {
 
   onResize()
 
+  const drag = throttleDebounce((e: MouseEvent) => {
+    transition.value = 0
+    angle.value = Math.max(
+      keyboardAngle,
+      Math.min(angle.value - e.movementY * 0.3, maxLidAngle + 50)
+    )
+  }, 10)
+
   useEffect(() => {
+    setTimeout(() => {
+      angle.value = maxLidAngle
+    }, 100)
     window.onresize = onResize
-    angle.value = maxLidAngle
+    window.onpointerup = () => {
+      mouseDown.value = false
+      transition.value = 1
+    }
+    window.document.body.onpointermove = (e: MouseEvent) => {
+      if (mouseDown.value) {
+        drag(e)
+      }
+    }
   }, [])
 
   return <div style={styles}>{children}</div>

@@ -11,14 +11,14 @@ import {
   keyboardAngle,
   maxLidAngle,
   perspective,
-  transition,
 } from './utils/consts'
 import { v } from './utils/cssvars'
 import { JSX } from 'preact/jsx-runtime'
-import { angle } from './utils/signals'
+import { angle, mouseDown, mouseDownY, transition } from './utils/signals'
 
 export function Lid({ children }: { children: JSX.Element }) {
   const handleClick = () => {
+    transition.value = 1
     angle.value = angle.value === keyboardAngle ? maxLidAngle : keyboardAngle
   }
 
@@ -27,7 +27,13 @@ export function Lid({ children }: { children: JSX.Element }) {
       <Back />
       <Top />
       <Front>{children}</Front>
-      <Control onclick={handleClick} />
+      <Control
+        onclick={handleClick}
+        onpointerdown={(e: PointerEvent) => {
+          mouseDown.value = true
+          mouseDownY.value = e.pageY
+        }}
+      />
     </>
   )
 }
@@ -45,7 +51,7 @@ const Control = styled(
     border: 5px solid ${color6};
     cursor: pointer;
     transform: ${rotation} translateY(${v('laptopHeight')}) rotateX(calc(${v('angle')} * -1deg));
-    transition: ${transition};
+    transition: ${v('transition')};
     opacity: 0.5;
 
     &:hover {
@@ -65,7 +71,7 @@ const Back = styled(
       translateZ(calc(${v('thickness')} / 2));
     perspective: ${perspective}px;
     border-radius: ${borderRadius1}px;
-    transition: ${transition};
+    transition: ${v('transition')};
   `
 )
 
@@ -78,7 +84,7 @@ const Top = styled(
     background-color: ${color4};
     transform: ${rotation} translateY(${v('laptopHeight')}) translateZ(calc(${v('thickness')} / 4))
       rotateX(90deg);
-    transition: ${transition};
+    transition: ${v('transition')};
     border-radius: ${borderRadius1}px;
   `
 )
@@ -92,7 +98,7 @@ const Front = styled(
     background-color: ${color1};
     transform: ${rotation} translateY(calc(${v('laptopHeight')} / 2)) rotateX(180deg);
     opacity: calc((${v('angle')} - 90));
-    transition: ${transition};
+    transition: ${v('transition')};
     border-radius: ${borderRadius1}px;
     border: 15px solid ${color2};
     overflow-y: auto;
