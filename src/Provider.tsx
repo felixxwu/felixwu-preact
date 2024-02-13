@@ -40,6 +40,7 @@ export function Provider({ children }: { children: JSX.Element }) {
       }
     }
     window.onkeydown = (e: KeyboardEvent) => {
+      document.getElementById('input')?.focus()
       if (['Tab'].includes(e.key)) return
       keysPressed.value = [...keysPressed.value, e.key]
     }
