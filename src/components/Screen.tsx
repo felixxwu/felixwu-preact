@@ -34,6 +34,7 @@ export function Screen() {
         oninput={handleInput}
         value={prompt + inputText.value}
         ariaLabel='input'
+        autocomplete={'off'}
       />
     </Container>
   )
@@ -96,5 +97,6 @@ const Input = styled(
     width: 100%;
     font-size: 16px;
     padding: 0;
+    caret-color: transparent;
   `
 )
