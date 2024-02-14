@@ -24,6 +24,10 @@ export function Screen() {
       {screenContent.value.map((content, i) => (
         <div key={i}>{content}</div>
       ))}
+      <GhostInput>
+        {prompt + inputText.value}
+        <Cursor />
+      </GhostInput>
       <Input
         id='input'
         type='text'
@@ -40,6 +44,45 @@ const Container = styled(
   css`
     padding: 10px;
     color: white;
+  `
+)
+
+const GhostInput = styled(
+  'div',
+  css`
+    position: absolute;
+    color: transparent;
+    display: flex;
+    white-space: pre;
+  `
+)
+
+const Cursor = styled(
+  'div',
+  css`
+    margin-left: 1px;
+    margin-top: 2px;
+    width: 7px;
+    height: 16px;
+    background-color: yellow;
+    animation: blink 1s infinite;
+    @keyframes blink {
+      0% {
+        opacity: 0;
+      }
+      49% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      99% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
   `
 )
 

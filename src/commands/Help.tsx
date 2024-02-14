@@ -7,7 +7,7 @@ export function Help() {
       <div>Available commands:</div>
       {Object.keys(commands).map(c => (
         <div key={c}>
-          • <CommandLink command={c}>{c}</CommandLink>
+          • <CommandLink command={c as keyof typeof commands}>{c}</CommandLink>
         </div>
       ))}
     </>

@@ -19,8 +19,6 @@ const Container = styled(
   'div',
   css`
     position: absolute;
-    width: 100vw;
-    height: 100svh;
     display: flex;
     justify-content: center;
     align-items: center;

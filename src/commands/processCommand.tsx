@@ -4,7 +4,7 @@ import { historyLimit } from '../utils/consts'
 import { inputText, screenContent } from '../utils/signals'
 import { commands } from '../utils/commands'
 
-export function processCommand() {
+export function submitCommand() {
   const command = inputText.value.trim() as keyof typeof commands
   inputText.value = ''
 

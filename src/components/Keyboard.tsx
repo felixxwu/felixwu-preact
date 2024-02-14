@@ -1,7 +1,7 @@
 import { css } from '@emotion/css'
 import { styled } from '../utils/StyledComponent'
 import { v } from '../utils/cssvars'
-import { borderRadius2, color1, color4 } from '../utils/consts'
+import { borderRadius2, borderRadius3, color1, color4 } from '../utils/consts'
 import { Key } from './Key'
 
 export function Keyboard() {
@@ -107,7 +107,7 @@ const Keybed = styled(
     width: calc(${v('laptopWidth')} / 1.15);
     height: calc(${v('laptopHeight')} / 1.8);
     background-color: ${color1}A;
-    border-radius: ${borderRadius2}px;
+    border-radius: ${borderRadius3}px;
     transform: translateY(calc(${v('laptopHeight')} / -8));
     transition: ${v('transition')};
     display: flex;

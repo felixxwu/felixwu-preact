@@ -2,7 +2,7 @@ import { vars } from '../utils/cssvars'
 import { useEffect } from 'preact/hooks'
 import { angle, keysPressed, laptopWidth, mouseDown, transition } from '../utils/signals'
 import { keyboardAngle, maxLidAngle } from '../utils/consts'
-import { processCommand } from '../commands/processCommand'
+import { submitCommand } from '../commands/processCommand'
 import { ComponentChildren } from 'preact'
 import { startup } from '../utils/startup'
 
@@ -51,7 +51,7 @@ export function Provider({ children }: { children: ComponentChildren }) {
       keysPressed.value = [...keysPressed.value, e.key]
 
       if (e.key === 'Enter') {
-        processCommand()
+        submitCommand()
       }
     }
 

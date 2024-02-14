@@ -1,19 +1,26 @@
 import { styled } from '../utils/StyledComponent'
 import { css } from '@emotion/css'
-import { inputText } from '../utils/signals'
-import { processCommand } from './processCommand'
+import { submitCommand } from './processCommand'
 import { ComponentChildren } from 'preact'
+import { typeCommand } from '../utils/typeCommand'
+import { commands } from '../utils/commands'
 
 export function CommandLink({
   command,
+  clearBefore,
   children,
 }: {
-  command: string
+  command: keyof typeof commands
+  clearBefore?: boolean
   children: ComponentChildren
 }) {
-  const handleClick = () => {
-    inputText.value = command
-    processCommand()
+  const handleClick = async () => {
+    if (clearBefore) {
+      await typeCommand('clear')
+      submitCommand()
+    }
+    await typeCommand(command)
+    submitCommand()
   }
 
   return <Container onclick={handleClick}>{children}</Container>
