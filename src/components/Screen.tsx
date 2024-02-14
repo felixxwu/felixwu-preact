@@ -24,7 +24,13 @@ export function Screen() {
       {screenContent.value.map((content, i) => (
         <div key={i}>{content}</div>
       ))}
-      <Input id='input' type='text' oninput={handleInput} value={prompt + inputText.value} />
+      <Input
+        id='input'
+        type='text'
+        oninput={handleInput}
+        value={prompt + inputText.value}
+        ariaLabel='input'
+      />
     </Container>
   )
 }
