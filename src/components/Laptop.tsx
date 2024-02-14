@@ -3,7 +3,7 @@ import { styled } from '../utils/StyledComponent'
 import { v } from '../utils/cssvars'
 import { Body } from './Body'
 import { Lid } from './Lid'
-import { perspective } from '../utils/consts'
+import { color3, color4, perspective } from '../utils/consts'
 import { JSX } from 'preact/jsx-runtime'
 
 export function Laptop({ children }: { children: JSX.Element }) {
@@ -25,5 +25,19 @@ const Container = styled(
     transform: translateY(calc((${v('angle')} * 1.5px) - 50px));
     perspective: ${perspective}px;
     transition: ${v('transition')};
+
+    & ::-webkit-scrollbar {
+      width: 10px;
+    }
+    & ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    & ::-webkit-scrollbar-thumb {
+      background: ${color3};
+      border-radius: 10px;
+    }
+    & ::-webkit-scrollbar-thumb:hover {
+      background: ${color4};
+    }
   `
 )

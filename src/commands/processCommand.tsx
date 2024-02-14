@@ -1,11 +1,11 @@
-import { SubmittedCommand } from './SubmittedCommand'
-import { UnknownCommand } from './UnknownCommand'
+import { SubmittedCommand } from './components/SubmittedCommand'
+import { UnknownCommand } from './components/UnknownCommand'
 import { historyLimit } from '../utils/consts'
 import { inputText, screenContent } from '../utils/signals'
-import { commands } from '../utils/commands'
+import { commands, hiddenCommands } from './commands'
 
 export function submitCommand() {
-  const command = inputText.value.trim() as keyof typeof commands
+  const command = inputText.value.trim()
   inputText.value = ''
 
   const cappedContent = screenContent.value.slice(
@@ -26,13 +26,24 @@ export function submitCommand() {
     screenContent.value = [
       ...cappedContent,
       <SubmittedCommand command={command} />,
-      commands[command](),
+      commands[command as keyof typeof commands](),
     ]
-  } else {
+    return
+  }
+
+  if (Object.keys(hiddenCommands).includes(command)) {
     screenContent.value = [
       ...cappedContent,
       <SubmittedCommand command={command} />,
-      <UnknownCommand command={command} />,
+      hiddenCommands[command as keyof typeof hiddenCommands](),
     ]
+    return
   }
+
+  // unknown command
+  screenContent.value = [
+    ...cappedContent,
+    <SubmittedCommand command={command} />,
+    <UnknownCommand command={command} />,
+  ]
 }

@@ -1,4 +1,4 @@
-import { commands } from '../utils/commands'
+import { commands } from '../commands'
 import { CommandLink } from './CommandLink'
 
 export function Help() {

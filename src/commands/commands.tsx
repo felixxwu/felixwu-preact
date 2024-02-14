@@ -1,6 +1,6 @@
-import { CommandLink } from '../commands/CommandLink'
-import { Help } from '../commands/Help'
-import { Start } from '../commands/Start'
+import { CommandLink } from './components/CommandLink'
+import { Help } from './components/Help'
+import { Start } from './components/Start'
 
 export const commands = {
   start: Start,
@@ -15,4 +15,8 @@ export const commands = {
   clear: () => <></>,
   help: Help,
   '?': Help,
+}
+
+export const hiddenCommands = {
+  hidden: () => <div>Hidden command</div>,
 }
