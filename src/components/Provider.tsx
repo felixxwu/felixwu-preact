@@ -4,6 +4,7 @@ import { angle, keysPressed, laptopWidth, mouseDown, transition } from '../utils
 import { keyboardAngle, maxLidAngle } from '../utils/consts'
 import { processCommand } from '../commands/processCommand'
 import { ComponentChildren } from 'preact'
+import { startup } from '../utils/startup'
 
 export function Provider({ children }: { children: ComponentChildren }) {
   const styles = Object.keys(vars)
@@ -25,9 +26,7 @@ export function Provider({ children }: { children: ComponentChildren }) {
   onResize()
 
   useEffect(() => {
-    setTimeout(() => {
-      angle.value = maxLidAngle
-    })
+    startup()
 
     window.onresize = onResize
 
@@ -55,6 +54,7 @@ export function Provider({ children }: { children: ComponentChildren }) {
         processCommand()
       }
     }
+
     window.onkeyup = (e: KeyboardEvent) => {
       keysPressed.value = keysPressed.value.filter(k => k !== e.key)
     }
