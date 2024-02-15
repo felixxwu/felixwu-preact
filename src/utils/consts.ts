@@ -8,6 +8,7 @@ export const boxShadow = '0px 0px 10px black'
 export const prompt = 'user@felixwu.me:~$ '
 export const historyLimit = 100
 export const screenPadding = 10
+export const mobileWidth = 600
 
 export const color1 = '#222'
 export const color2 = '#444'

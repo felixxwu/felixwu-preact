@@ -3,13 +3,13 @@ import { css } from '@emotion/css'
 import { laptopWidth } from './utils/signals'
 import { Provider } from './components/Provider'
 import { Laptop } from './components/Laptop'
-import { color1 } from './utils/consts'
+import { color1, mobileWidth } from './utils/consts'
 import { Screen } from './components/Screen'
 
 export function App() {
   return (
     <Provider>
-      {laptopWidth.value < 600 ? (
+      {laptopWidth.value < mobileWidth ? (
         <MobileContainer id='screen-container'>
           <Screen />
         </MobileContainer>

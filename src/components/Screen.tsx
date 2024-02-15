@@ -1,7 +1,7 @@
 import { css } from '@emotion/css'
 import { styled } from '../utils/StyledComponent'
 import { dead, inputText, screenContent } from '../utils/signals'
-import { prompt, screenPadding } from '../utils/consts'
+import { mobileWidth, prompt, screenPadding } from '../utils/consts'
 import { useState } from 'preact/hooks'
 import { v } from '../utils/cssvars'
 
@@ -43,6 +43,10 @@ const Container = styled(
     color: white;
     padding-bottom: calc(${v('laptopHeight')} - 60px);
 
+    @media screen and (max-width: ${mobileWidth}px) {
+      padding-bottom: calc(100svh - 30px);
+    }
+
     & * {
       user-select: text;
     }
@@ -52,7 +56,8 @@ const Container = styled(
 const GhostInput = styled(
   'div',
   css`
-    position: absolute;
+    position: relative;
+    height: 0;
     color: transparent;
     display: flex;
     white-space: pre;
