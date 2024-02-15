@@ -1,22 +1,21 @@
-import { CommandLink } from './components/CommandLink'
+import { Employment } from './components/employment'
 import { Help } from './components/Help'
 import { Start } from './components/Start'
+import { TwoSimple } from './components/employment/TwoSimple'
+import { dead } from '../utils/signals'
 
 export const commands = {
   start: Start,
-  echo: () => (
-    <div>
-      Hello world{' '}
-      <CommandLink command='start' clearBefore>
-        "start"
-      </CommandLink>
-    </div>
-  ),
+  employment: Employment,
+  twosimple: TwoSimple,
   clear: () => <></>,
   help: Help,
   '?': Help,
 }
 
 export const hiddenCommands = {
-  hidden: () => <div>Hidden command</div>,
+  'rm -rf /': () => {
+    dead.value = true
+    return <></>
+  },
 }

@@ -1,4 +1,4 @@
-import { CommandLink } from './CommandLink'
+import { CommandLink } from './utils/CommandLink'
 
 export function UnknownCommand({ command }: { command: string }) {
   return (

@@ -1,5 +1,5 @@
 import { ComponentChildren } from 'preact'
-import { styled } from '../../utils/StyledComponent'
+import { styled } from '../../../utils/StyledComponent'
 import { css } from '@emotion/css'
 
 export function ExternalLink({ url, children }: { url: string; children: ComponentChildren }) {

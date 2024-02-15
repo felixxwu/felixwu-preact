@@ -1,15 +1,18 @@
 import { commands } from '../commands'
-import { CommandLink } from './CommandLink'
+import { CommandLink } from './utils/CommandLink'
 
 export function Help() {
   return (
     <>
+      <br />
       <div>Available commands:</div>
-      {Object.keys(commands).map(c => (
-        <div key={c}>
-          • <CommandLink command={c as keyof typeof commands}>{c}</CommandLink>
-        </div>
-      ))}
+      <ul>
+        {Object.keys(commands).map(c => (
+          <li key={c}>
+            <CommandLink command={c as keyof typeof commands}>{c}</CommandLink>
+          </li>
+        ))}
+      </ul>
     </>
   )
 }

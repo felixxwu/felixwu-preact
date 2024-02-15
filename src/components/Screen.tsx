@@ -1,18 +1,14 @@
 import { css } from '@emotion/css'
 import { styled } from '../utils/StyledComponent'
-import { inputText, screenContent } from '../utils/signals'
-import { prompt } from '../utils/consts'
+import { dead, inputText, screenContent } from '../utils/signals'
+import { prompt, screenPadding } from '../utils/consts'
 import { useState } from 'preact/hooks'
+import { v } from '../utils/cssvars'
 
 export function Screen() {
   const [updateKey, setUpdateKey] = useState(0)
 
-  const screen = document.getElementById('screen-container')
-  if (screen) {
-    setTimeout(() => {
-      screen.scrollTop = 1e10
-    })
-  }
+  if (dead.value) return null
 
   const handleInput = (e: Event) => {
     inputText.value = (e.target as HTMLInputElement).value.slice(prompt.length) ?? ''
@@ -43,8 +39,13 @@ export function Screen() {
 const Container = styled(
   'div',
   css`
-    padding: 10px;
+    padding: ${screenPadding}px;
     color: white;
+    padding-bottom: calc(${v('laptopHeight')} - 60px);
+
+    & * {
+      user-select: text;
+    }
   `
 )
 

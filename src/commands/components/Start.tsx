@@ -1,30 +1,50 @@
-import { css } from '@emotion/css'
-import { styled } from '../../utils/StyledComponent'
-import { CommandLink } from './CommandLink'
-import { ExternalLink } from './ExternalLink'
+import { CommandLink } from './utils/CommandLink'
+import { ExternalLink } from './utils/ExternalLink'
+import { Table } from './utils/Table'
+import { Headline } from './utils/Headline'
+import { HR } from './utils/HR'
 
 export function Start() {
   return (
     <>
-      <Name>Felix Wu</Name>
+      <Headline>Felix Wu</Headline>
       <span>
-        Frontend developer at <ExternalLink url='https://www.shipserv.com/'>ShipServ</ExternalLink>
+        Frontend developer at <ExternalLink url='https://www.shipserv.com/'>ShipServ</ExternalLink>.
       </span>
       <br />
       <br />
+      <Table
+        data={[
+          [
+            'Email:',
+            <ExternalLink url='mailto:felixxwu@gmail.com'>felixxwu@gmail.com</ExternalLink>,
+          ],
+          ['CV:', <ExternalLink url='https://felixwu.me/cv.pdf'>felixwu.me/cv.pdf</ExternalLink>],
+          [
+            'GitHub:',
+            <ExternalLink url='https://github.com/felixxwu'>github.com/felixxwu</ExternalLink>,
+          ],
+          [
+            'LinkedIn:',
+            <ExternalLink url='https://linkedin.com/in/felixxwu'>
+              linkedin.com/in/felixxwu
+            </ExternalLink>,
+          ],
+        ]}
+      />
+      <br />
+      <div>Navigation:</div>
+      <ul>
+        <li>
+          <CommandLink command='employment'>Employment</CommandLink>
+        </li>
+      </ul>
+      <HR />
       <div>
         Type <CommandLink command='help'>"help"</CommandLink>
         or <CommandLink command='?'>"?"</CommandLink> for a list of available commands.
       </div>
+      <br />
     </>
   )
 }
-
-const Name = styled(
-  'h1',
-  css`
-    font-family: 'Montserrat', sans-serif;
-    font-size: 50px;
-    font-weight: 500;
-  `
-)

@@ -4,7 +4,7 @@ import { prompt } from '../../utils/consts'
 
 export function SubmittedCommand({ command }: { command: string }) {
   return (
-    <Container>
+    <Container className='submitted'>
       {prompt}
       {command}
     </Container>
