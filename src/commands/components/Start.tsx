@@ -36,8 +36,11 @@ export function Start() {
       <div>Navigation:</div>
       <ul>
         <li>
-          <CommandLink command='employment'>Employment</CommandLink>
+          <CommandLink command='experience'>Work Experience</CommandLink>
         </li>
+        <li>Personal Projects (WIP)</li>
+        <li>Education (WIP)</li>
+        <li>Technical Skills (WIP)</li>
       </ul>
       <HR />
       <div>

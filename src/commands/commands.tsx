@@ -1,12 +1,12 @@
-import { Employment } from './components/employment'
+import { WorkExperience } from './components/experience'
 import { Help } from './components/Help'
 import { Start } from './components/Start'
-import { TwoSimple } from './components/employment/TwoSimple'
+import { TwoSimple } from './components/experience/TwoSimple'
 import { dead } from '../utils/signals'
 
 export const commands = {
   start: Start,
-  employment: Employment,
+  experience: WorkExperience,
   twosimple: TwoSimple,
   clear: () => <></>,
   help: Help,

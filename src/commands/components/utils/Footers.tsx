@@ -8,7 +8,7 @@ export function EmploymentFooter() {
       <div>Navigation:</div>
       <ul>
         <li>
-          <CommandLink command='employment'>Employment</CommandLink>
+          <CommandLink command='experience'>Work Experience</CommandLink>
         </li>
         <li>
           <CommandLink command='start'>Home</CommandLink>
