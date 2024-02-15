@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Generator</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 id="name"></h1>
+    <button onclick="randomise()">Randomise again</button>
+    <a id="google" href="" target="_blank"></a>
+    <a id="link" href="" target="_blank"></a>
+    <img id="historyIcon" src="history.svg" alt="history">
+    <div id="history">
+        <div id="historyBottom"></div>
+    </div>
+
+    <script src="script.js?v=2"></script>
+    <script src="generate.js?v=2"></script>
+    <style>
+        * {
+            font-family: 'Lexend Deca', sans-serif;
+            --white: rgb(235, 235, 235);
+            --black: rgb(26, 26, 26);
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            text-align: center;
+        }
+
+        #name {
+            padding-top: 30px;
+            font-size: 50px;
+            height: 150px;
+        }
+
+        button {
+            border: 1px solid var(--white);
+            border-radius: 10px;
+            outline: none;
+            background: transparent;
+            color: var(--white);
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        a {
+            margin-top: 30px;
+            display: block;
+            color: var(--white);
+        }
+
+        #historyIcon {
+            width: 20px;
+            height: 20px;
+            filter: invert(1);
+            margin-top: 30px;
+            padding: 30px;
+        }
+
+        .historyItem {
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+</body>
+</html>

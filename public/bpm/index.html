@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPM Tapper</title>
+</head>
+<body onpointerdown="handleTap()" onkeydown="handleTap()">
+    <div class="wrapper">
+        <span class="large" id="large"></span>
+        <span class="small" id="small"></span>
+        <div class="bars" id="bars"></div>
+    </div>
+
+    <script>
+        let lastTapped = 0
+        let taps = []
+
+        function handleTap() {
+            const now = (new Date()).getTime()
+            
+            if (now - lastTapped < 2000) {
+                taps.push(now)
+
+                const intervals = getIntervals()
+                const average = intervals.reduce((a, b) => a + b, 0) / intervals.length
+                render(getBPM(average))
+            } else {
+                taps = []
+                render(null)
+            }
+
+            lastTapped = now
+            
+        }
+
+        function getIntervals() {
+            return taps.map((tap, i) => {
+                if (i === 0) {
+                    return null
+                } else {
+                    return tap - taps[i - 1]
+                }
+            }).filter(tap => tap)
+        }
+
+        function getBPM(interval) {
+            return (1000 * 60) / interval
+        }
+        
+        function render(bpm) {
+            document.getElementById('large').innerHTML = bpm ? `${Math.round(bpm)} bpm` : 'Tap';
+            document.getElementById('small').innerHTML = bpm ? `(${Math.round(bpm * 100) / 100})` : '';
+
+            if (taps.length === 0) {
+                document.getElementById('bars').innerHTML = ''
+            }
+            const intervals = getIntervals()
+            const last = intervals[intervals.length - 1]
+            const bar = document.createElement('div')
+            bar.style.width = getBPM(last) + 'px'
+            bar.style.height = '2px'
+            bar.style.minHeight = '2px'
+            bar.style.backgroundColor = '#888'
+            document.getElementById('bars').prepend(bar)
+        }
+
+
+        render(null)
+    </script>
+</body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+
+    * {
+        font-family: 'Lexend Deca', sans-serif;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    body {
+        background-color: #222;
+        color: #ddd;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    body:active:hover {
+        background-color: #333;
+
+    }
+    
+    .wrapper {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .display {
+        width: 200px;
+    }
+
+    .large {
+        font-size: 60px;
+    }
+
+    .small {
+        font-size: 20px;
+    }
+
+    .bars {
+        padding-top: 20px;
+        height: 300px;
+        width: 100vw;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+</html>
