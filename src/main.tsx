@@ -1,5 +1,4 @@
 import { render } from 'preact'
-//@ts-ignore
-import { App } from './App.tsx'
+import { App } from './app.tsx'
 
 render(<App />, document.getElementById('app')!)
