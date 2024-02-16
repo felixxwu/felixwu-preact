@@ -79,7 +79,7 @@ const Top = styled(
   'div',
   css`
     position: absolute;
-    width: ${v('laptopWidth')};
+    width: calc(${v('laptopWidth')} - 2px);
     height: calc(${v('thickness')} / 2);
     background-color: ${color4};
     transform: ${rotation} translateY(${v('laptopHeight')})

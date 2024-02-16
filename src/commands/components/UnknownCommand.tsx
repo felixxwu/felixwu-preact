@@ -1,6 +1,6 @@
 import { CommandLink } from './utils/CommandLink'
 
-export function UnknownCommand({ command }: { command: string }) {
+export function UnknownCommand(command: string) {
   return (
     <div>
       "{command}" is an unrecognised command. Type <CommandLink command='help'>"help"</CommandLink>

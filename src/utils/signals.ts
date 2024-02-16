@@ -2,11 +2,6 @@ import { computed, signal } from '@preact/signals'
 import { keyboardAngle } from './consts'
 import { JSX } from 'preact/jsx-runtime'
 
-export const currentUser = {
-  value: 'user',
-  old: 'user',
-}
-
 export const angle = signal(keyboardAngle)
 export const laptopWidth = signal(window.innerWidth)
 export const laptopHeight = computed(() => laptopWidth.value / 1.5)
@@ -18,3 +13,10 @@ export const keysPressed = signal<string[]>([])
 export const inputText = signal('')
 export const screenContent = signal<JSX.Element[]>([])
 export const dead = signal(false)
+
+// non reactive
+export const currentUser = {
+  value: 'user',
+  old: 'user',
+}
+export const commandHistory = [] as string[]
