@@ -1,6 +1,6 @@
 import { SubmittedCommand } from './components/SubmittedCommand'
 import { historyLimit, screenPadding } from '../utils/consts'
-import { currentUser, inputText, screenContent } from '../utils/signals'
+import { commandHistory, commandPos, currentUser, inputText, screenContent } from '../utils/signals'
 import { commands } from './commands'
 
 export function submitCommand() {
@@ -39,6 +39,8 @@ function acceptCommand(commandName: string, args: string) {
   const submittedCommandName = commandName === 'unknown' ? args : `${commandName} ${args}`
   const command = commands[commandName]
 
+  commandHistory.unshift(submittedCommandName)
+
   screenContent.value = [
     ...cappedContent,
     <SubmittedCommand command={submittedCommandName} />,
@@ -46,4 +48,6 @@ function acceptCommand(commandName: string, args: string) {
   ]
 
   command.onExecute?.(args)
+
+  commandPos.value = -1
 }

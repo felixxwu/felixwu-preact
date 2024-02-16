@@ -1,6 +1,15 @@
 import { vars } from '../utils/cssvars'
 import { useEffect } from 'preact/hooks'
-import { angle, keysPressed, laptopWidth, mouseDown, transition } from '../utils/signals'
+import {
+  angle,
+  commandHistory,
+  commandPos,
+  inputText,
+  keysPressed,
+  laptopWidth,
+  mouseDown,
+  transition,
+} from '../utils/signals'
 import { keyboardAngle, maxLidAngle } from '../utils/consts'
 import { submitCommand } from '../commands/submitCommand'
 import { ComponentChildren } from 'preact'
@@ -55,6 +64,16 @@ export function Provider({ children }: { children: ComponentChildren }) {
 
       if (e.key === 'Enter') {
         submitCommand()
+      }
+
+      if (e.key === 'ArrowUp') {
+        commandPos.value = Math.min(commandPos.value + 1, commandHistory.length - 1)
+        inputText.value = commandHistory[commandPos.value] ?? ''
+      }
+
+      if (e.key === 'ArrowDown') {
+        commandPos.value = Math.max(commandPos.value - 1, -1)
+        inputText.value = commandHistory[commandPos.value] ?? ''
       }
     }
 

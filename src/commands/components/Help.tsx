@@ -14,7 +14,7 @@ export function Help(_: string) {
       <ul>
         {Object.keys(filteredCommands).map(c => (
           <li key={c}>
-            <CommandLink command={c as keyof typeof commands}>{c}</CommandLink>
+            <CommandLink command={c}>{c}</CommandLink>
           </li>
         ))}
       </ul>

@@ -20,3 +20,6 @@ export const currentUser = {
   old: 'user',
 }
 export const commandHistory = [] as string[]
+export const commandPos = {
+  value: -1,
+}
