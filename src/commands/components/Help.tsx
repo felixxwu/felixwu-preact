@@ -1,4 +1,5 @@
-import { commands } from '../commands'
+import { currentUser } from '../../utils/signals'
+import { commands, hiddenCommands } from '../commands'
 import { CommandLink } from './utils/CommandLink'
 
 export function Help(_: string) {
@@ -12,6 +13,15 @@ export function Help(_: string) {
             <CommandLink command={c as keyof typeof commands}>{c}</CommandLink>
           </li>
         ))}
+        {currentUser.value === 'admin' && (
+          <>
+            {Object.keys(hiddenCommands).map(c => (
+              <li key={c}>
+                <CommandLink command={c as keyof typeof commands}>{c}</CommandLink>
+              </li>
+            ))}
+          </>
+        )}
       </ul>
     </>
   )
