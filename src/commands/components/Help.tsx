@@ -1,7 +1,7 @@
 import { commands } from '../commands'
 import { CommandLink } from './utils/CommandLink'
 
-export function Help() {
+export function Help(_: string) {
   return (
     <>
       <br />

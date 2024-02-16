@@ -5,7 +5,7 @@ import { inputText, screenContent } from '../utils/signals'
 import { commands, hiddenCommands } from './commands'
 
 export function submitCommand() {
-  const command = inputText.value.trim()
+  const inputCommand = inputText.value.trim()
   inputText.value = ''
 
   setTimeout(() => {
@@ -22,30 +22,35 @@ export function submitCommand() {
     Math.max(0, screenContent.value.length - historyLimit)
   )
 
-  if (command === 'clear') {
+  if (inputCommand === 'clear') {
     screenContent.value = []
     return
   }
 
-  if ((command as any) === '') {
-    screenContent.value = [...cappedContent, <SubmittedCommand command={command} />]
+  if ((inputCommand as any) === '') {
+    screenContent.value = [...cappedContent, <SubmittedCommand command={inputCommand} />]
     return
   }
 
-  if (Object.keys(commands).includes(command)) {
-    screenContent.value = [
-      ...cappedContent,
-      <SubmittedCommand command={command} />,
-      commands[command as keyof typeof commands](),
-    ]
-    return
+  for (const c of Object.keys(commands)) {
+    if (
+      inputCommand.startsWith(c) &&
+      (inputCommand.length === c.length || inputCommand[c.length] === ' ')
+    ) {
+      screenContent.value = [
+        ...cappedContent,
+        <SubmittedCommand command={inputCommand} />,
+        commands[c as keyof typeof commands](inputCommand.slice(c.length + 1)),
+      ]
+      return
+    }
   }
 
-  if (Object.keys(hiddenCommands).includes(command)) {
+  if (Object.keys(hiddenCommands).includes(inputCommand)) {
     screenContent.value = [
       ...cappedContent,
-      <SubmittedCommand command={command} />,
-      hiddenCommands[command as keyof typeof hiddenCommands](),
+      <SubmittedCommand command={inputCommand} />,
+      hiddenCommands[inputCommand as keyof typeof hiddenCommands](),
     ]
     return
   }
@@ -53,7 +58,7 @@ export function submitCommand() {
   // unknown command
   screenContent.value = [
     ...cappedContent,
-    <SubmittedCommand command={command} />,
-    <UnknownCommand command={command} />,
+    <SubmittedCommand command={inputCommand} />,
+    <UnknownCommand command={inputCommand} />,
   ]
 }

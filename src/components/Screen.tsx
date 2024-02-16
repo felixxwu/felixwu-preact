@@ -1,6 +1,6 @@
 import { css } from '@emotion/css'
 import { styled } from '../utils/StyledComponent'
-import { dead, inputText, screenContent } from '../utils/signals'
+import { currentUser, dead, inputText, screenContent } from '../utils/signals'
 import { mobileWidth, prompt, screenPadding } from '../utils/consts'
 import { useState } from 'preact/hooks'
 import { v } from '../utils/cssvars'
@@ -11,7 +11,8 @@ export function Screen() {
   if (dead.value) return null
 
   const handleInput = (e: Event) => {
-    inputText.value = (e.target as HTMLInputElement).value.slice(prompt.length) ?? ''
+    inputText.value =
+      (e.target as HTMLInputElement).value.slice(currentUser.value.length + prompt.length) ?? ''
     setUpdateKey(updateKey + 1)
   }
 
@@ -21,14 +22,14 @@ export function Screen() {
         <div key={i}>{content}</div>
       ))}
       <GhostInput>
-        {prompt + inputText.value}
+        {currentUser.value + prompt + inputText.value}
         <Cursor />
       </GhostInput>
       <Input
         id='input'
         type='text'
         oninput={handleInput}
-        value={prompt + inputText.value}
+        value={currentUser.value + prompt + inputText.value}
         ariaLabel='input'
         autocomplete={'off'}
       />

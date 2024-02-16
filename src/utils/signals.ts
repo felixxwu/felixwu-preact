@@ -2,6 +2,11 @@ import { computed, signal } from '@preact/signals'
 import { keyboardAngle } from './consts'
 import { JSX } from 'preact/jsx-runtime'
 
+export const currentUser = {
+  value: 'user',
+  old: 'user',
+}
+
 export const angle = signal(keyboardAngle)
 export const laptopWidth = signal(window.innerWidth)
 export const laptopHeight = computed(() => laptopWidth.value / 1.5)
