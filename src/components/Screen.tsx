@@ -1,7 +1,7 @@
 import { css } from '@emotion/css'
 import { styled } from '../utils/StyledComponent'
 import { currentUser, dead, inputText, screenContent } from '../utils/signals'
-import { mobileWidth, prompt, screenPadding } from '../utils/consts'
+import { adminColor, mobileWidth, prompt, screenPadding, userColor } from '../utils/consts'
 import { useState } from 'preact/hooks'
 import { v } from '../utils/cssvars'
 
@@ -23,7 +23,9 @@ export function Screen() {
       ))}
       <GhostInput>
         {currentUser.value + prompt + inputText.value}
-        <Cursor />
+        <Cursor
+          style={{ backgroundColor: currentUser.value === 'admin' ? adminColor : userColor }}
+        />
       </GhostInput>
       <Input
         id='input'
@@ -32,6 +34,7 @@ export function Screen() {
         value={currentUser.value + prompt + inputText.value}
         ariaLabel='input'
         autocomplete={'off'}
+        style={{ color: currentUser.value === 'admin' ? adminColor : userColor }}
       />
     </Container>
   )
@@ -72,7 +75,6 @@ const Cursor = styled(
     margin-top: 2px;
     width: 7px;
     height: 16px;
-    background-color: yellow;
     animation: blink 1s infinite;
     @keyframes blink {
       0% {
@@ -97,7 +99,6 @@ const Cursor = styled(
 const Input = styled(
   'input',
   css`
-    color: yellow;
     background-color: transparent;
     border: none;
     outline: none;
