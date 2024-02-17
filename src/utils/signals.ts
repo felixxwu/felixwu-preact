@@ -13,6 +13,7 @@ export const keysPressed = signal<string[]>([])
 export const inputText = signal('')
 export const screenContent = signal<JSX.Element[]>([])
 export const dead = signal(false)
+export const browser = signal(false)
 
 // non reactive
 export const currentUser = {

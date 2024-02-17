@@ -31,7 +31,7 @@ export function Provider({ children }: { children: ComponentChildren }) {
     if (window.innerWidth < 1050) {
       laptopWidth.value = window.innerWidth - 50
     } else {
-      laptopWidth.value = 1000
+      laptopWidth.value = Math.min(1000, window.innerHeight * 1.25)
     }
   }
 

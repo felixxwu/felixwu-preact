@@ -1,14 +1,17 @@
 import { css } from '@emotion/css'
 import { styled } from '../utils/StyledComponent'
-import { currentUser, dead, inputText, screenContent } from '../utils/signals'
+import { browser, currentUser, dead, inputText, screenContent } from '../utils/signals'
 import { adminColor, mobileWidth, prompt, screenPadding, userColor } from '../utils/consts'
 import { useState } from 'preact/hooks'
 import { v } from '../utils/cssvars'
+import { Browser } from './Browser'
 
 export function Screen() {
   const [updateKey, setUpdateKey] = useState(0)
 
   if (dead.value) return null
+
+  if (browser.value) return <Browser />
 
   const handleInput = (e: Event) => {
     inputText.value =

@@ -1,6 +1,6 @@
 import { WorkExperience } from './components/experience'
 import { Help } from './components/Help'
-import { Start } from './components/Start'
+import { Home } from './components/Home'
 import { TwoSimple } from './components/experience/TwoSimple'
 import { currentUser, dead, screenContent } from '../utils/signals'
 import { Login } from './components/Login'
@@ -17,15 +17,9 @@ type Commands = {
 }
 
 export const commands: Commands = {
-  start: { component: Start },
+  home: { component: Home },
   experience: { component: WorkExperience },
   twosimple: { component: TwoSimple },
-  clear: {
-    component: () => <></>,
-    onExecute() {
-      screenContent.value = []
-    },
-  },
   login: {
     component: Login,
     onExecute(user) {
@@ -33,6 +27,18 @@ export const commands: Commands = {
         currentUser.old = currentUser.value
         currentUser.value = user
       }
+    },
+  },
+  // browser: {
+  //   component: () => <></>,
+  //   onExecute() {
+  //     browser.value = true
+  //   },
+  // },
+  clear: {
+    component: () => <></>,
+    onExecute() {
+      screenContent.value = []
     },
   },
   help: { component: Help },

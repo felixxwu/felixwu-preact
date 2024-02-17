@@ -11,7 +11,7 @@ export function EmploymentFooter() {
           <CommandLink command='experience'>Work Experience</CommandLink>
         </li>
         <li>
-          <CommandLink command='start'>Home</CommandLink>
+          <CommandLink command='home'>Home</CommandLink>
         </li>
       </ul>
     </>
@@ -25,7 +25,7 @@ export function HomeFooter() {
       <div>Navigation:</div>
       <ul>
         <li>
-          <CommandLink command='start'>Home</CommandLink>
+          <CommandLink command='home'>Home</CommandLink>
         </li>
       </ul>
     </>
