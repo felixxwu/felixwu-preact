@@ -12,6 +12,8 @@ export function Home(_: string) {
         Frontend developer at <ExternalLink url='https://www.shipserv.com/'>ShipServ</ExternalLink>.
       </span>
       <br />
+      <span>(This app is still under development)</span>
+      <br />
       <br />
       <Table
         data={[

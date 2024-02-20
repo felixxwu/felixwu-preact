@@ -27,18 +27,31 @@ export function Lid({ children }: { children: JSX.Element }) {
       <Back />
       <Top />
       <Front id='screen-container'>{children}</Front>
-      <Control
-        onclick={handleClick}
-        onpointerdown={(e: PointerEvent) => {
-          mouseDown.value = true
-          mouseDownY.value = e.pageY
-        }}
-      />
+      <TransformationLayer>
+        <Control
+          onclick={handleClick}
+          onpointerdown={(e: PointerEvent) => {
+            mouseDown.value = true
+            mouseDownY.value = e.pageY
+          }}
+        />
+      </TransformationLayer>
     </>
   )
 }
 
 const rotation = `rotateX(calc(${v('angle')} * 1deg))`
+
+const TransformationLayer = styled(
+  'div',
+  css`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: ${rotation} translateY(${v('laptopHeight')}) rotateX(calc(${v('angle')} * -1deg));
+    transition: ${v('transition')};
+  `
+)
 
 const Control = styled(
   'div',
@@ -50,12 +63,24 @@ const Control = styled(
     filter: drop-shadow(${boxShadow});
     border: 5px solid ${color6};
     cursor: pointer;
-    transform: ${rotation} translateY(${v('laptopHeight')}) rotateX(calc(${v('angle')} * -1deg));
-    transition: ${v('transition')};
     opacity: 0.5;
+    translate: -50% -50%;
+    animation: breathe 3s infinite;
 
     &:hover {
       opacity: 1;
+    }
+
+    @keyframes breathe {
+      0% {
+        transform: scale(0.9);
+      }
+      50% {
+        transform: scale(1.3);
+      }
+      100% {
+        transform: scale(0.9);
+      }
     }
   `
 )
