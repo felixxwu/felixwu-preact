@@ -4,13 +4,18 @@ import { Table } from './utils/Table'
 import { Headline } from './utils/Headline'
 import { HR } from './utils/HR'
 
+const y = new Date()
+
 export function Home(_: string) {
   return (
     <>
       <Headline>Felix Wu</Headline>
       <span>
-        Frontend developer at <ExternalLink url='https://www.shipserv.com/'>ShipServ</ExternalLink>.
+        Frontend developer at <ExternalLink url='https://www.shipserv.com/'>ShipServ</ExternalLink>{' '}
+        - familiar with: React, TypeScript, NextJS, VueJS, GraphQL and more.
       </span>
+      <br />
+      <span>{new Date().getFullYear() - 2020} years of industry experience.</span>
       <br />
       <span>(This app is still under development)</span>
       <br />
