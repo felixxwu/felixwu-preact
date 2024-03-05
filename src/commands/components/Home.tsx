@@ -4,8 +4,6 @@ import { Table } from './utils/Table'
 import { Headline } from './utils/Headline'
 import { HR } from './utils/HR'
 
-const y = new Date()
-
 export function Home(_: string) {
   return (
     <>
