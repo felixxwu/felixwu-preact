@@ -1,10 +1,11 @@
+import { backLabel } from '../../../utils/consts'
 import { CommandLink } from '../utils/CommandLink'
-import { HomeFooter } from '../utils/Footers'
 import { Headline } from '../utils/Headline'
 
 export function WorkExperience() {
   return (
     <>
+      <CommandLink command='home'>{backLabel}</CommandLink>
       <Headline>Work Experience</Headline>
       <div>ShipServ, 2022 - Now (WIP)</div>
       <div>Frontend developer [NextJS, TS, GraphQL]</div>
@@ -23,7 +24,7 @@ export function WorkExperience() {
         IT Team Intern - Created a Vue component used for many database management related internal
         applications. [VueJS, REST]
       </div>
-      <HomeFooter />
+      <br />
     </>
   )
 }

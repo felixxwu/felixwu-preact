@@ -13,7 +13,9 @@ export function Home(_: string) {
         - familiar with: React, TypeScript, NextJS, VueJS, GraphQL and more.
       </span>
       <br />
-      <span>{new Date().getFullYear() - 2020} years of industry experience.</span>
+      <span>
+        {new Date().getFullYear() - 2020} years of industry experience with these technologies.
+      </span>
       <br />
       <span>(This app is still under development)</span>
       <br />

@@ -11,6 +11,7 @@ export const screenPadding = 10
 export const mobileWidth = 600
 export const userColor = 'yellow'
 export const adminColor = '#ff7171'
+export const backLabel = '< back'
 
 export const color1 = '#222'
 export const color2 = '#444'
