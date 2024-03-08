@@ -1,6 +1,7 @@
 import { backLabel } from '../../../utils/consts'
 import { CommandLink } from '../utils/CommandLink'
 import { ExternalLink } from '../utils/ExternalLink'
+import { Grey } from '../utils/Grey'
 import { Headline } from '../utils/Headline'
 
 export function TwoSimple() {
@@ -8,6 +9,10 @@ export function TwoSimple() {
     <>
       <CommandLink command='experience'>{backLabel}</CommandLink>
       <Headline>2Simple (2020 - 2022)</Headline>
+      <div>
+        <Grey>Technologies: VueJS, TS, Jest, jQuery, Sass, Backbone, Node</Grey>
+      </div>
+      <br />
       <div>
         2Simple has given me the opportunity to take ownership of a number of projects. The
         following are the three main projects that I took over or created:
@@ -35,8 +40,6 @@ export function TwoSimple() {
           <ExternalLink url='https://youtu.be/9MISivYB2RE'>youtu.be/9MISivYB2RE</ExternalLink>
         </li>
       </ul>
-      <div>Tech stack: VueJS, TS, Jest, jQuery, Sass, Backbone, and Node.</div>
-      <br />
       <div>Links:</div>
       <ul>
         <li>

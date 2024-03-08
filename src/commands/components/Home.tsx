@@ -43,7 +43,9 @@ export function Home(_: string) {
       <div>Navigation:</div>
       <ul>
         <li>
-          <CommandLink command='experience'>Work Experience</CommandLink>
+          <CommandLink command='experience'>
+            Work Experience (2019 - {new Date().getFullYear()})
+          </CommandLink>
         </li>
         <li>Personal Projects (WIP)</li>
         <li>Education (WIP)</li>

@@ -7,6 +7,7 @@ import { Login } from './components/Login'
 import { UnknownCommand } from './components/UnknownCommand'
 import { JSX } from 'preact/jsx-runtime'
 import { AspectFS } from './components/experience/AspectFS'
+import { UoE } from './components/experience/UoE'
 
 type Commands = {
   [key: string]: {
@@ -22,6 +23,7 @@ export const commandsConfig = {
   experience: { component: WorkExperience },
   twosimple: { component: TwoSimple },
   aspectfs: { component: AspectFS },
+  uoe: { component: UoE },
   login: {
     component: Login,
     onExecute(user) {
