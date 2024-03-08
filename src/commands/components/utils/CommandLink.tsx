@@ -2,12 +2,13 @@ import { styled } from '../../../utils/StyledComponent'
 import { css } from '@emotion/css'
 import { ComponentChildren } from 'preact'
 import { typeCommand } from '../../../utils/typeCommand'
+import { commandsConfig } from '../../commands'
 
 export function CommandLink({
   command,
   children,
 }: {
-  command: string
+  command: keyof typeof commandsConfig
   children: ComponentChildren
 }) {
   const handleClick = async () => {

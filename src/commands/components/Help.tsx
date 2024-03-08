@@ -14,6 +14,7 @@ export function Help(_: string) {
       <ul>
         {Object.keys(filteredCommands).map(c => (
           <li key={c}>
+            {/* @ts-ignore */}
             <CommandLink command={c}>{c}</CommandLink>
           </li>
         ))}

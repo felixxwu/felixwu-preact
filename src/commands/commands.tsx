@@ -6,6 +6,7 @@ import { currentUser, dead, screenContent } from '../utils/signals'
 import { Login } from './components/Login'
 import { UnknownCommand } from './components/UnknownCommand'
 import { JSX } from 'preact/jsx-runtime'
+import { AspectFS } from './components/experience/AspectFS'
 
 type Commands = {
   [key: string]: {
@@ -16,10 +17,11 @@ type Commands = {
   }
 }
 
-export const commands: Commands = {
+export const commandsConfig = {
   home: { component: Home },
   experience: { component: WorkExperience },
   twosimple: { component: TwoSimple },
+  aspectfs: { component: AspectFS },
   login: {
     component: Login,
     onExecute(user) {
@@ -57,4 +59,6 @@ export const commands: Commands = {
     hidden: true,
   },
   unknown: { component: UnknownCommand, hidden: true },
-}
+} satisfies Commands
+
+export const commands = commandsConfig as Commands

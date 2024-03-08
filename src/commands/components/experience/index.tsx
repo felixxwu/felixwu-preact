@@ -13,7 +13,7 @@ export function WorkExperience() {
       <CommandLink command='twosimple'>2Simple, 2020 - 2022</CommandLink>
       <div>Frontend Developer [VueJS, TS, jQuery, Node]</div>
       <br />
-      <div>Aspect FS, 2020 (WIP)</div>
+      <CommandLink command='aspectfs'>Aspect FS, 2020</CommandLink>
       <div>
         Freelance Software Developer - Created a platform to optimise face-to-face fundraising
         campaigns. [React, TS, Firebase, Jest]
