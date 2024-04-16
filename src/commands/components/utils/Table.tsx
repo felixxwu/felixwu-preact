@@ -1,6 +1,5 @@
 import { JSX } from 'preact/jsx-runtime'
-import { styled } from '../../../utils/StyledComponent'
-import { css } from '@emotion/css'
+import styled from 'styled-components'
 
 export function Table({ data }: { data: (string | JSX.Element)[][] }) {
   return (
@@ -18,19 +17,16 @@ export function Table({ data }: { data: (string | JSX.Element)[][] }) {
   )
 }
 
-const Container = styled(
-  'table',
-  css`
-    &,
-    & tr,
-    & td {
-      border-collapse: collapse;
-      padding: 0;
-      margin: 0;
-    }
+const Container = styled.table`
+  &,
+  & tr,
+  & td {
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+  }
 
-    & td {
-      padding-right: 10px;
-    }
-  `
-)
+  & td {
+    padding-right: 10px;
+  }
+`

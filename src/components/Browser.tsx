@@ -1,5 +1,4 @@
-import { css } from '@emotion/css'
-import { styled } from '../utils/StyledComponent'
+import styled from 'styled-components'
 
 export function Browser() {
   return (
@@ -10,31 +9,22 @@ export function Browser() {
   )
 }
 
-const Container = styled(
-  'div',
-  css`
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  `
-)
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
 
-const IFrame = styled(
-  'iframe',
-  css`
-    width: 100%;
-    height: calc(100% - 30px);
-    border: none;
-    transform: scale(1);
-  `
-)
+const IFrame = styled.iframe`
+  width: 100%;
+  height: calc(100% - 30px);
+  border: none;
+  transform: scale(1);
+`
 
-const BrowserTopBar = styled(
-  'div',
-  css`
-    display: flex;
-    align-items: center;
-    height: 30px;
-    background-color: #f1f1f1;
-  `
-)
+const BrowserTopBar = styled.div`
+  display: flex;
+  align-items: center;
+  height: 30px;
+  background-color: #f1f1f1;
+`

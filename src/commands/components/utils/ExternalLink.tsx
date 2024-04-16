@@ -1,6 +1,5 @@
 import { ComponentChildren } from 'preact'
-import { styled } from '../../../utils/StyledComponent'
-import { css } from '@emotion/css'
+import styled from 'styled-components'
 
 export function ExternalLink({ url, children }: { url: string; children: ComponentChildren }) {
   return (
@@ -10,15 +9,12 @@ export function ExternalLink({ url, children }: { url: string; children: Compone
   )
 }
 
-const Container = styled(
-  'a',
-  css`
-    color: hsl(215deg 100% 80%);
-    cursor: pointer;
-    text-decoration: none;
+const Container = styled.a`
+  color: hsl(215deg 100% 80%);
+  cursor: pointer;
+  text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
-    }
-  `
-)
+  &:hover {
+    text-decoration: underline;
+  }
+`

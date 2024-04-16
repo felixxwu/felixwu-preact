@@ -1,13 +1,7 @@
-import { css } from '@emotion/css'
+import styled from 'styled-components'
 
-export function HR() {
-  return (
-    <hr
-      className={css`
-        border: 0;
-        border-top: 1px solid #ffffff7a;
-        margin: 20px 0;
-      `}
-    />
-  )
-}
+export const HR = styled.hr`
+  border: 0;
+  border-top: 1px solid #ffffff7a;
+  margin: 20px 0;
+`

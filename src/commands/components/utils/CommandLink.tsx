@@ -1,8 +1,7 @@
-import { styled } from '../../../utils/StyledComponent'
-import { css } from '@emotion/css'
 import { ComponentChildren } from 'preact'
 import { typeCommand } from '../../../utils/typeCommand'
 import { commandsConfig } from '../../commands'
+import styled from 'styled-components'
 
 export function CommandLink({
   command,
@@ -15,17 +14,14 @@ export function CommandLink({
     await typeCommand(command)
   }
 
-  return <Container onclick={handleClick}>{children}</Container>
+  return <Container onClick={handleClick}>{children}</Container>
 }
 
-const Container = styled(
-  'span',
-  css`
-    color: hsl(215deg 100% 80%);
-    cursor: pointer;
+const Container = styled.span`
+  color: hsl(215deg 100% 80%);
+  cursor: pointer;
 
-    &:hover {
-      text-decoration: underline;
-    }
-  `
-)
+  &:hover {
+    text-decoration: underline;
+  }
+`

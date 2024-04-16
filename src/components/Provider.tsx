@@ -14,9 +14,8 @@ import { keyboardAngle, maxLidAngle } from '../utils/consts'
 import { submitCommand } from '../commands/submitCommand'
 import { ComponentChildren } from 'preact'
 import { startup } from '../utils/startup'
-import { styled } from '../utils/StyledComponent'
-import { css } from '@emotion/css'
 import { lexend } from '../fonts/lexend'
+import styled from 'styled-components'
 
 export function Provider({ children }: { children: ComponentChildren }) {
   const styles = Object.keys(vars)
@@ -85,12 +84,9 @@ export function Provider({ children }: { children: ComponentChildren }) {
   return <Container style={styles}>{children}</Container>
 }
 
-const Container = styled(
-  'div',
-  css`
-    @font-face {
-      font-family: 'Lexend Deca';
-      src: url(data:font/woff2;charset=utf-8;base64,${lexend}) format('woff2');
-    }
-  `
-)
+const Container = styled.div`
+  @font-face {
+    font-family: 'Lexend Deca';
+    src: url(data:font/woff2;charset=utf-8;base64,${lexend}) format('woff2');
+  }
+`

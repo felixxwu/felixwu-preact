@@ -1,8 +1,7 @@
-import { css } from '@emotion/css'
-import { styled } from '../utils/StyledComponent'
 import { v } from '../utils/cssvars'
 import { borderRadius2, borderRadius3, color1, color4 } from '../utils/consts'
 import { Key } from './Key'
+import styled from 'styled-components'
 
 export function Keyboard() {
   return (
@@ -90,65 +89,50 @@ export function Keyboard() {
   )
 }
 
-const Container = styled(
-  'div',
-  css`
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `
-)
+const Container = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
-const Keybed = styled(
-  'div',
-  css`
-    position: absolute;
-    width: calc(${v('laptopWidth')} / 1.15);
-    height: calc(${v('laptopHeight')} / 1.8);
-    background-color: ${color1}A;
-    border-radius: ${borderRadius3}px;
-    transform: translateY(calc(${v('laptopHeight')} / -8));
-    transition: ${v('transition')};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: calc(${v('laptopHeight')} / 50);
-    transition: ${v('transition')};
-    flex-direction: column;
-  `
-)
+const Keybed = styled.div`
+  position: absolute;
+  width: calc(${v('laptopWidth')} / 1.15);
+  height: calc(${v('laptopHeight')} / 1.8);
+  background-color: ${color1}A;
+  border-radius: ${borderRadius3}px;
+  transform: translateY(calc(${v('laptopHeight')} / -8));
+  transition: ${v('transition')};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(${v('laptopHeight')} / 50);
+  transition: ${v('transition')};
+  flex-direction: column;
+`
 
-const KeyRow = styled(
-  'div',
-  css`
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: calc(${v('laptopWidth')} / 200);
-    transition: ${v('transition')};
-  `
-)
+const KeyRow = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: calc(${v('laptopWidth')} / 200);
+  transition: ${v('transition')};
+`
 
-const DoubleKey = styled(
-  'div',
-  css`
-    display: flex;
-    flex-direction: column;
-    gap: calc(${v('laptopWidth')} / 200);
-    transition: ${v('transition')};
-  `
-)
+const DoubleKey = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: calc(${v('laptopWidth')} / 200);
+  transition: ${v('transition')};
+`
 
-const Touchpad = styled(
-  'div',
-  css`
-    position: absolute;
-    width: calc(${v('laptopWidth')} / 4);
-    height: calc(${v('laptopHeight')} / 3.5);
-    background-color: ${color4};
-    border-radius: ${borderRadius2}px;
-    transform: translateY(calc(${v('laptopHeight')} / 3.1));
-    transition: ${v('transition')};
-  `
-)
+const Touchpad = styled.div`
+  position: absolute;
+  width: calc(${v('laptopWidth')} / 4);
+  height: calc(${v('laptopHeight')} / 3.5);
+  background-color: ${color4};
+  border-radius: ${borderRadius2}px;
+  transform: translateY(calc(${v('laptopHeight')} / 3.1));
+  transition: ${v('transition')};
+`
