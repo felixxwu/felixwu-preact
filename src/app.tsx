@@ -1,3 +1,5 @@
+import './styles.css'
+import './lexend.css'
 import { laptopWidth } from './utils/signals'
 import { Provider } from './components/Provider'
 import { Laptop } from './components/Laptop'

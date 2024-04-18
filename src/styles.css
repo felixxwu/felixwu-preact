@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eee;
+  overflow: hidden;
+}
+
+* {
+  min-width: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Lexend Deca', sans-serif;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
