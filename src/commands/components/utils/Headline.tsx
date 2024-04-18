@@ -1,5 +1,5 @@
 import { ComponentChildren } from 'preact'
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function Headline({ children }: { children: ComponentChildren }) {
   return <Container>{children}</Container>

@@ -3,7 +3,7 @@ import { Body } from './Body'
 import { Lid } from './Lid'
 import { color3, color4, perspective } from '../utils/consts'
 import { JSX } from 'preact/jsx-runtime'
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function Laptop({ children }: { children: JSX.Element }) {
   return (

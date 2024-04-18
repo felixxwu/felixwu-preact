@@ -13,7 +13,7 @@ import {
 import { v } from '../utils/cssvars'
 import { JSX } from 'preact/jsx-runtime'
 import { angle, mouseDown, mouseDownY, transition } from '../utils/signals'
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function Lid({ children }: { children: JSX.Element }) {
   const handleClick = () => {

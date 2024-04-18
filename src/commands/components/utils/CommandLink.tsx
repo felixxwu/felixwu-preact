@@ -1,7 +1,7 @@
 import { ComponentChildren } from 'preact'
 import { typeCommand } from '../../../utils/typeCommand'
 import { commandsConfig } from '../../commands'
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function CommandLink({
   command,

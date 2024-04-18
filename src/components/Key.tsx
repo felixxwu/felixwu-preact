@@ -1,7 +1,7 @@
 import { borderRadius1, color1, color2 } from '../utils/consts'
 import { keysPressed } from '../utils/signals'
 import { v } from '../utils/cssvars'
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function Key({ name, style }: { name?: string; style?: { [k: string]: any } }) {
   const pressed = name ? keysPressed.value.includes(name) : false

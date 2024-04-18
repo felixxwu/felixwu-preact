@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function Browser() {
   return (

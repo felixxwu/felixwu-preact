@@ -1,5 +1,5 @@
 import { JSX } from 'preact/jsx-runtime'
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function Table({ data }: { data: (string | JSX.Element)[][] }) {
   return (

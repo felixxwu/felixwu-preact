@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { styled } from 'goober'
 import { ComponentChildren } from 'preact'
 
 export function Grey({ children }: { children: ComponentChildren }) {

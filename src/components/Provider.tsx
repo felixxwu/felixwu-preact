@@ -15,7 +15,7 @@ import { submitCommand } from '../commands/submitCommand'
 import { ComponentChildren } from 'preact'
 import { startup } from '../utils/startup'
 import { lexend } from '../fonts/lexend'
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function Provider({ children }: { children: ComponentChildren }) {
   const styles = Object.keys(vars)

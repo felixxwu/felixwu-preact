@@ -3,7 +3,7 @@ import { Provider } from './components/Provider'
 import { Laptop } from './components/Laptop'
 import { color1, mobileWidth } from './utils/consts'
 import { Screen } from './components/Screen'
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function App() {
   return (

@@ -9,7 +9,7 @@ import {
   keyboardAngle,
 } from '../utils/consts'
 import { Keyboard } from './Keyboard'
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function Body() {
   return (

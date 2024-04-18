@@ -1,7 +1,7 @@
 import { v } from '../utils/cssvars'
 import { borderRadius2, borderRadius3, color1, color4 } from '../utils/consts'
 import { Key } from './Key'
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function Keyboard() {
   return (

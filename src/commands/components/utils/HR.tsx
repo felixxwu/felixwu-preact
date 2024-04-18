@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export const HR = styled.hr`
   border: 0;

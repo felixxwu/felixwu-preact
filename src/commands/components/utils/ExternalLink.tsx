@@ -1,5 +1,5 @@
 import { ComponentChildren } from 'preact'
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function ExternalLink({ url, children }: { url: string; children: ComponentChildren }) {
   return (

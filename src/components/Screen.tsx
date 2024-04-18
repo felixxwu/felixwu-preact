@@ -3,7 +3,7 @@ import { adminColor, mobileWidth, prompt, screenPadding, userColor } from '../ut
 import { useState } from 'preact/hooks'
 import { v } from '../utils/cssvars'
 import { Browser } from './Browser'
-import styled from 'styled-components'
+import { styled } from 'goober'
 
 export function Screen() {
   const [updateKey, setUpdateKey] = useState(0)
