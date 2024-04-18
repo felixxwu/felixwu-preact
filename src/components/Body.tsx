@@ -29,7 +29,7 @@ const rotation = `rotateX(calc(${keyboardAngle}deg - (${v(
   'angle'
 )} * 1deg - ${keyboardAngle}deg) / -10))`
 
-const Base = styled.div`
+const Base = styled('div')`
   position: absolute;
   width: ${v('laptopWidth')};
   height: ${v('laptopHeight')};
@@ -42,7 +42,7 @@ const Base = styled.div`
   transition: ${v('transition')};
 `
 
-const Shadow = styled.div`
+const Shadow = styled('div')`
   position: absolute;
   width: ${v('laptopWidth')};
   height: ${v('laptopHeight')};
@@ -55,7 +55,7 @@ const Shadow = styled.div`
   opacity: 0.5;
 `
 
-const Front = styled.div`
+const Front = styled('div')`
   position: absolute;
   width: calc(${v('laptopWidth')} - 2px);
   height: ${v('thickness')};
@@ -66,7 +66,7 @@ const Front = styled.div`
   transition: ${v('transition')};
 `
 
-const Hinge = styled.div`
+const Hinge = styled('div')`
   position: absolute;
   width: calc(${v('laptopWidth')} / 1.3);
   height: calc(${v('laptopHeight')} / 15);
@@ -76,7 +76,7 @@ const Hinge = styled.div`
   transition: ${v('transition')};
 `
 
-const Lip = styled.div`
+const Lip = styled('div')`
   position: absolute;
   width: calc(${v('laptopWidth')} / 8);
   height: calc(${v('thickness')} / 2);

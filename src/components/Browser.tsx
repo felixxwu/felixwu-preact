@@ -9,20 +9,20 @@ export function Browser() {
   )
 }
 
-const Container = styled.div`
+const Container = styled('div')`
   display: flex;
   flex-direction: column;
   height: 100%;
 `
 
-const IFrame = styled.iframe`
+const IFrame = styled('iframe')`
   width: 100%;
   height: calc(100% - 30px);
   border: none;
   transform: scale(1);
 `
 
-const BrowserTopBar = styled.div`
+const BrowserTopBar = styled('div')`
   display: flex;
   align-items: center;
   height: 30px;

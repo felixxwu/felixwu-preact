@@ -42,7 +42,7 @@ export function Screen() {
   )
 }
 
-const Container = styled.div`
+const Container = styled('div')`
   padding: ${screenPadding}px;
   color: white;
   padding-bottom: calc(${v('laptopHeight')} - 60px);
@@ -56,7 +56,7 @@ const Container = styled.div`
   }
 `
 
-const GhostInput = styled.div`
+const GhostInput = styled('div')`
   position: relative;
   height: 0;
   color: transparent;
@@ -64,7 +64,7 @@ const GhostInput = styled.div`
   white-space: pre;
 `
 
-const Cursor = styled.div`
+const Cursor = styled('div')`
   margin-left: 1px;
   margin-top: 2px;
   width: 7px;
@@ -89,7 +89,7 @@ const Cursor = styled.div`
   }
 `
 
-const Input = styled.input`
+const Input = styled('input')`
   background-color: transparent;
   border: none;
   outline: none;

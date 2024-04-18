@@ -8,7 +8,7 @@ export function Key({ name, style }: { name?: string; style?: { [k: string]: any
   return <Container style={{ ...style, backgroundColor: pressed ? color2 : color1 }} />
 }
 
-const Container = styled.div`
+const Container = styled('div')`
   width: calc(${v('laptopWidth')} / 19);
   height: calc(${v('laptopWidth')} / 19);
   border-radius: ${borderRadius1}px;

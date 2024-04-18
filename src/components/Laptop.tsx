@@ -14,7 +14,7 @@ export function Laptop({ children }: { children: JSX.Element }) {
   )
 }
 
-const Container = styled.div`
+const Container = styled('div')`
   position: absolute;
   display: flex;
   justify-content: center;

@@ -17,7 +17,7 @@ export function Table({ data }: { data: (string | JSX.Element)[][] }) {
   )
 }
 
-const Container = styled.table`
+const Container = styled('table')`
   &,
   & tr,
   & td {

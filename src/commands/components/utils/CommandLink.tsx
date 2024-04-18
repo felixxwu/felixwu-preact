@@ -17,7 +17,7 @@ export function CommandLink({
   return <Container onClick={handleClick}>{children}</Container>
 }
 
-const Container = styled.span`
+const Container = styled('span')`
   color: hsl(215deg 100% 80%);
   cursor: pointer;
 

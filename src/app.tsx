@@ -21,7 +21,7 @@ export function App() {
   )
 }
 
-const LaptopContainer = styled.div`
+const LaptopContainer = styled('div')`
   position: absolute;
   width: 100vw;
   height: 100svh;
@@ -30,7 +30,7 @@ const LaptopContainer = styled.div`
   align-items: center;
 `
 
-const MobileContainer = styled.div`
+const MobileContainer = styled('div')`
   width: 100vw;
   height: 100svh;
   overflow-y: auto;

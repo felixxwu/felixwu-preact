@@ -41,7 +41,7 @@ export function Lid({ children }: { children: JSX.Element }) {
 
 const rotation = `rotateX(calc(${v('angle')} * 1deg))`
 
-const TransformationLayer = styled.div`
+const TransformationLayer = styled('div')`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -49,7 +49,7 @@ const TransformationLayer = styled.div`
   transition: ${v('transition')};
 `
 
-const Control = styled.div`
+const Control = styled('div')`
   position: absolute;
   width: 30px;
   height: 30px;
@@ -78,7 +78,7 @@ const Control = styled.div`
   }
 `
 
-const Back = styled.div`
+const Back = styled('div')`
   position: absolute;
   width: ${v('laptopWidth')};
   height: ${v('laptopHeight')};
@@ -90,7 +90,7 @@ const Back = styled.div`
   transition: ${v('transition')};
 `
 
-const Top = styled.div`
+const Top = styled('div')`
   position: absolute;
   width: calc(${v('laptopWidth')} - 2px);
   height: calc(${v('thickness')} / 2);
@@ -101,7 +101,7 @@ const Top = styled.div`
   border-radius: ${borderRadius1}px;
 `
 
-const Front = styled.div`
+const Front = styled('div')`
   position: absolute;
   width: ${v('laptopWidth')};
   height: ${v('laptopHeight')};

@@ -9,7 +9,7 @@ export function ExternalLink({ url, children }: { url: string; children: Compone
   )
 }
 
-const Container = styled.a`
+const Container = styled('a')`
   color: hsl(215deg 100% 80%);
   cursor: pointer;
   text-decoration: none;

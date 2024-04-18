@@ -89,14 +89,14 @@ export function Keyboard() {
   )
 }
 
-const Container = styled.div`
+const Container = styled('div')`
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 `
 
-const Keybed = styled.div`
+const Keybed = styled('div')`
   position: absolute;
   width: calc(${v('laptopWidth')} / 1.15);
   height: calc(${v('laptopHeight')} / 1.8);
@@ -112,7 +112,7 @@ const Keybed = styled.div`
   flex-direction: column;
 `
 
-const KeyRow = styled.div`
+const KeyRow = styled('div')`
   display: flex;
   justify-content: center;
   width: 100%;
@@ -120,14 +120,14 @@ const KeyRow = styled.div`
   transition: ${v('transition')};
 `
 
-const DoubleKey = styled.div`
+const DoubleKey = styled('div')`
   display: flex;
   flex-direction: column;
   gap: calc(${v('laptopWidth')} / 200);
   transition: ${v('transition')};
 `
 
-const Touchpad = styled.div`
+const Touchpad = styled('div')`
   position: absolute;
   width: calc(${v('laptopWidth')} / 4);
   height: calc(${v('laptopHeight')} / 3.5);
