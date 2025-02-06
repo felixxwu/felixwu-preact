@@ -1,6 +1,6 @@
 export const keyboardAngle = 70
 export const maxLidAngle = 190
-export const perspective = 2000
+export const perspective = 2500
 export const borderRadius1 = 3
 export const borderRadius2 = 8
 export const borderRadius3 = 20

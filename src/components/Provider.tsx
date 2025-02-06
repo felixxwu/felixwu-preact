@@ -14,6 +14,7 @@ import { keyboardAngle, maxLidAngle } from '../utils/consts'
 import { submitCommand } from '../commands/submitCommand'
 import { ComponentChildren } from 'preact'
 import { startup } from '../utils/startup'
+import { commands } from '../commands/commands.tsx'
 
 export function Provider({ children }: { children: ComponentChildren }) {
   const styles = Object.keys(vars)
@@ -25,17 +26,15 @@ export function Provider({ children }: { children: ComponentChildren }) {
     .reduce((acc, curr) => ({ ...acc, ...curr }), {})
 
   const onResize = () => {
-    if (window.innerWidth < 1050) {
-      laptopWidth.value = window.innerWidth - 50
-    } else {
-      laptopWidth.value = Math.min(1000, window.innerHeight * 1.25)
-    }
+    const widthFromHeight = window.innerHeight
+    const widthFromWidth = window.innerWidth - 50
+    laptopWidth.value = Math.min(widthFromHeight, widthFromWidth)
   }
 
   onResize()
 
   useEffect(() => {
-    startup()
+    startup().then()
 
     window.onresize = onResize
 
@@ -56,11 +55,20 @@ export function Provider({ children }: { children: ComponentChildren }) {
 
     window.onkeydown = (e: KeyboardEvent) => {
       document.getElementById('input')?.focus()
-      if (['Tab'].includes(e.key)) return
       keysPressed.value = [...keysPressed.value, e.key]
 
       if (e.key === 'Enter') {
         submitCommand()
+      }
+
+      if (e.key === 'Tab') {
+        e.preventDefault()
+        for (const command in commands) {
+          if (command.startsWith(inputText.value)) {
+            inputText.value = command
+            return
+          }
+        }
       }
 
       if (e.key === 'ArrowUp') {

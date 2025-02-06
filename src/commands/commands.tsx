@@ -2,12 +2,13 @@ import { WorkExperience } from './components/experience'
 import { Help } from './components/Help'
 import { Home } from './components/Home'
 import { TwoSimple } from './components/experience/TwoSimple'
-import { currentUser, dead, screenContent } from '../utils/signals'
+import { angle, currentUser, dead, screenContent, transition } from '../utils/signals'
 import { Login } from './components/Login'
 import { UnknownCommand } from './components/UnknownCommand'
 import { JSX } from 'preact/jsx-runtime'
 import { AspectFS } from './components/experience/AspectFS'
 import { UoE } from './components/experience/UoE'
+import { keyboardAngle } from '../utils/consts.ts'
 
 type Commands = {
   [key: string]: {
@@ -33,12 +34,13 @@ export const commandsConfig = {
       }
     },
   },
-  // browser: {
-  //   component: () => <></>,
-  //   onExecute() {
-  //     browser.value = true
-  //   },
-  // },
+  closelid: {
+    component: () => <></>,
+    onExecute() {
+      transition.value = 1
+      angle.value = keyboardAngle
+    },
+  },
   clear: {
     component: () => <></>,
     onExecute() {
