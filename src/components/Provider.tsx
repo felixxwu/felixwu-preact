@@ -85,6 +85,10 @@ export function Provider({ children }: { children: ComponentChildren }) {
     window.onkeyup = (e: KeyboardEvent) => {
       keysPressed.value = keysPressed.value.filter(k => k !== e.key)
     }
+
+    window.onblur = () => {
+      keysPressed.value = []
+    }
   }, [])
 
   return <div style={styles}>{children}</div>

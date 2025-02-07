@@ -2,6 +2,7 @@ import { ComponentChildren } from 'preact'
 import { typeCommand } from '../../../utils/typeCommand'
 import { commandsConfig } from '../../commands'
 import { styled } from 'goober'
+import { linkColor } from '../../../utils/consts.ts'
 
 export function CommandLink({
   command,
@@ -18,7 +19,7 @@ export function CommandLink({
 }
 
 const Container = styled('span')`
-  color: hsl(215deg 100% 80%);
+  color: ${linkColor};
   cursor: pointer;
 
   &:hover {

@@ -1,13 +1,13 @@
-import { backLabel } from '../../../utils/consts'
-import { CommandLink } from '../utils/CommandLink'
 import { ExternalLink } from '../utils/ExternalLink'
 import { Grey } from '../utils/Grey'
 import { Headline } from '../utils/Headline'
+import { Breadcrumb } from '../../../components/Breadcrumb.tsx'
+import { breadcrumbLinks } from './index.tsx'
 
 export function TwoSimple() {
   return (
     <>
-      <CommandLink command='experience'>{backLabel}</CommandLink>
+      <Breadcrumb links={breadcrumbLinks} />
       <Headline>2Simple (2020 - 2022)</Headline>
       <div>
         <Grey>Technologies: VueJS, TS, Jest, jQuery, Sass, Backbone, Node</Grey>

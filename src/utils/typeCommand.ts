@@ -1,5 +1,5 @@
 import { submitCommand } from '../commands/submitCommand'
-import { inputText, keysPressed } from './signals'
+import { inputText, keysPressed, screenContent } from './signals'
 
 export async function typeCommand(command: string) {
   let i = 0
@@ -10,6 +10,8 @@ export async function typeCommand(command: string) {
     i++
   }
   keysPressed.value = ['Enter']
+  screenContent.value = []
+
   submitCommand()
   await new Promise(r => setTimeout(r, 70))
   keysPressed.value = []

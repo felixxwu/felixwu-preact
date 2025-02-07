@@ -1,13 +1,13 @@
-import { backLabel } from '../../../utils/consts'
-import { CommandLink } from '../utils/CommandLink'
 import { ExternalLink } from '../utils/ExternalLink'
 import { Grey } from '../utils/Grey'
 import { Headline } from '../utils/Headline'
+import { Breadcrumb } from '../../../components/Breadcrumb.tsx'
+import { breadcrumbLinks } from './index.tsx'
 
 export function AspectFS() {
   return (
     <>
-      <CommandLink command='experience'>{backLabel}</CommandLink>
+      <Breadcrumb links={breadcrumbLinks} />
       <Headline>AspectFS (2020)</Headline>
       <div>
         <Grey>Technologies: React, TypeScript, Firebase, Jest</Grey>

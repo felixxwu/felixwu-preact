@@ -1,5 +1,5 @@
 import { SubmittedCommand } from './components/SubmittedCommand'
-import { historyLimit, screenPadding } from '../utils/consts'
+import { historyLimit } from '../utils/consts'
 import { commandHistory, commandPos, currentUser, inputText, screenContent } from '../utils/signals'
 import { commands } from './commands'
 
@@ -11,8 +11,11 @@ export function submitCommand() {
     const screen = document.getElementById('screen-container')
     if (screen) {
       setTimeout(() => {
-        const submittedCommands = [...document.querySelectorAll('.submitted')] as HTMLElement[]
-        screen.scrollTop = submittedCommands.slice(-1)[0].offsetTop - screenPadding
+        screen.scrollTop =
+          (document.getElementById('input')?.offsetTop ?? 0) -
+          screen.clientHeight +
+          (document.getElementById('input')?.clientHeight ?? 0) +
+          1
       })
     }
   })
