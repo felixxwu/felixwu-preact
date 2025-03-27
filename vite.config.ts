@@ -12,4 +12,12 @@ export default defineConfig({
       'react-dom': 'preact/compat',
     },
   },
+  build: {
+    rollupOptions: {
+      input: {
+        main: './index.html',
+        cv: './cv.html',
+      },
+    },
+  },
 })
